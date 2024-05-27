@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inserir Filial</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Adiciona margem à direita para separar os inputs em duas colunas */
+        .form-group {
+            margin-right: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h2>Inserir Filial</h2>
+        <h5>Inserir uma nova filial copiando os dados de uma filial de origem</h5>
+        <form id="formFilial">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="idFilial">ID Filial</label>
+                        <input type="number" class="form-control" id="idFilial" placeholder="Insira o ID Filial da nova filial" required>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="nomeFantasia">Nome Fantasia</label>
+                        <input type="text" class="form-control" id="nomeFantasia" placeholder="Nome Fantasia da nova filial">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="idFilialOrig">Id Filial Origem</label>
+                        <input type="number" class="form-control" id="idFilialOrig" placeholder="Insira o ID da Filial de Origem"
+                            required>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary" id="gerarComandoBtn">Gerar Comando</button>
+            <button type="button" class="btn btn-secondary" id="copiarResultadoBtn">
+                <i class="bi bi-copy"></i> Copiar Resultado
+            </button>
+        </form>
+        <pre id="resultado" class="mt-3"></pre>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <script src="JS/insertFilialCopiando.js"></script>
+</body>
+
+</html>
