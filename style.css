@@ -1,0 +1,23 @@
+.menu-link.active {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.logo-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px; /* Defina a largura desejada */
+    height: auto;
+    padding: 15px;
+    background-color: #f8f9fa; /* Cor de fundo opcional */
+    z-index: 1000; /* Certifique-se de que a logo esteja sempre acima do conteúdo */
+}
+
+.logo-container img {
+    max-width: 100%; /* Garante que a imagem seja responsiva */
+}
+
+.menu-container {
+    margin-left: 200px; /* Ajuste de margem para acomodar a logo fixa */
+}

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inserir Filial</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Adiciona margem à direita para separar os inputs em duas colunas */
+        .form-group {
+            margin-right: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Inserir Filial</h2>
+        <form id="formFilial">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="idFilial">ID Filial</label>
+                        <input type="number" class="form-control" id="idFilial" placeholder="ID Filial">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="nomeFantasia">Nome Fantasia</label>
+                        <input type="text" class="form-control" id="nomeFantasia" placeholder="Nome Fantasia">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="cnpj">CNPJ</label>
+                        <input type="text" class="form-control" id="cnpj" placeholder="CNPJ">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="razaoSocial">Razão Social</label>
+                        <input type="text" class="form-control" id="razaoSocial" placeholder="Razão Social">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="inscEst">Inscrição Estadual</label>
+                        <input type="text" class="form-control" id="inscEst" placeholder="Inscrição Estadual">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="cep">CEP</label>
+                        <input type="text" class="form-control" id="cep" placeholder="CEP">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="logradouro">Logradouro</label>
+                        <input type="text" class="form-control" id="logradouro" placeholder="Logradouro">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="numero">Número</label>
+                        <input type="text" class="form-control" id="numero" placeholder="Número">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="complemento">Complemento</label>
+                        <input type="text" class="form-control" id="complemento" placeholder="Complemento">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="bairro">Bairro</label>
+                        <input type="text" class="form-control" id="bairro" placeholder="Bairro">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="cidade">Cidade</label>
+                        <input type="text" class="form-control" id="cidade" placeholder="Cidade">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="estado">Estado</label>
+                        <input type="text" class="form-control" id="estado" placeholder="Estado">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="fone">Telefone</label>
+                        <input type="text" class="form-control" id="fone" placeholder="Telefone">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Email">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="caixaLoja">Caixa da Loja</label>
+                        <input type="text" class="form-control" id="caixaLoja" placeholder="Caixa da Loja">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="nomeGeral">Nome Geral</label>
+                        <input type="text" class="form-control" id="nomeGeral" placeholder="Nome Geral">
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary" id="gerarComandoBtn">Gerar Comando</button>
+            <button type="button" class="btn btn-secondary" id="copiarResultadoBtn">
+                <i class="bi bi-copy"></i> Copiar Resultado
+            </button>
+        </form>
+        <pre id="resultado" class="mt-3"></pre>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <script src="JS/insertFilial.js"></script>
+</body>
+</html>
