@@ -11,29 +11,31 @@
 <div class="container mt-5">
     <h2>Filiais Pendentes</h2>
     <form id="geradorFiliaisPendentesForm">
-        <div class="form-group">
-            <label for="idFilial">ID da Filial:</label>
-            <input type="number" class="form-control" id="idFilial" min="1" max="999">
-        </div>
-        <div class="form-group">
-            <label>Selecione as tabelas:</label>
-            <select class="form-control" id="tabela">
-                <option value="produto">Produto</option>
-                <option value="gradeProd">GradeProd</option>
-                <option value="filialEstoque">Filial Estoque</option>
-                <option value="cliente">Cliente</option>
-                <option value="funcionario">Funcionario</option>
-                <option value="funcionarioCaixa">Funcionario Caixa</option>
-                <option value="forma">Forma</option>
-                <option value="conta">Conta</option>
-                <option value="centroCusto">Centro de Custo</option>
-                <option value="cor">Cor</option>
-                <option value="tamanho">Tamanho</option>
-                <option value="fornecedor">Fornecedor</option>
-                <option value="composicaoprod">Composição</option>
-                <option value="transportador">Transportador</option>
-            </select>
-            <!-- Adicione mais checkboxes para outras tabelas aqui -->
+        <div class="row">
+            <div class="form-group  col-md-6">
+                <label for="idFilial">ID da Filial:</label>
+                <input type="number" class="form-control" id="idFilial" min="1" max="999">
+            </div>
+            <div class="form-group  col-md-6">
+                <label>Selecione as tabelas:</label>
+                <select class="form-control" id="tabela">
+                    <option value="produto">Produto</option>
+                    <option value="gradeProd">GradeProd</option>
+                    <option value="filialEstoque">Filial Estoque</option>
+                    <option value="cliente">Cliente</option>
+                    <option value="funcionario">Funcionario</option>
+                    <option value="funcionarioCaixa">Funcionario Caixa</option>
+                    <option value="forma">Forma</option>
+                    <option value="conta">Conta</option>
+                    <option value="centroCusto">Centro de Custo</option>
+                    <option value="cor">Cor</option>
+                    <option value="tamanho">Tamanho</option>
+                    <option value="fornecedor">Fornecedor</option>
+                    <option value="composicaoprod">Composição</option>
+                    <option value="transportador">Transportador</option>
+                </select>
+                <!-- Adicione mais checkboxes para outras tabelas aqui -->
+            </div>
         </div>
         <button type="button" class="btn btn-primary mt-3" id="gerarFiliaisPendentesBtn">Gerar Filiais Pendentes</button>
         <button type="button" class="btn btn-success mt-3" id="copiarResultadoBtn" style="display: none;">

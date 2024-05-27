@@ -10,5 +10,13 @@
     "FiliaisPendentes": {
         "descricao": "Este comando roda o filiais pendentes já calculado automáticamente para todas as filiais. Deve ser rodado no servidor e só precisa ser trocado o nome da tabela onde está escrito TABELA",
         "comando": "update TABELA set filiaispendentes=filiaispendentes | (select (power(2,(select max(idfilial)-1 from filial))*2)-2)"
+    },
+    "ativarMigrate": {
+        "descricao": "Ativar o MIGRATE de forma mais rápida do que entrando nos parametros um a um. OBS: Substituir a interrogação pela chave de acesso gerada para o cliente.",
+        "comando": "UPDATE PARAMETRO SET VALOR='?' WHERE PARAMETRO='CHAVEACESSOMIGRATE'\r\nGO\r\nUPDATE PARAMETRO SET VALOR='6YO62RZj4g4uX0l0kq+vNw==' WHERE PARAMETRO='CHAVEPARCEIROMIGRATE'\r\nGO\r\nUPDATE PARAMETRO SET VALOR='1' WHERE PARAMETRO IN ('USANFCEMIGRATE', 'USANFEMIGRATE')"
+    },
+    "mudarSerie": {
+        "descricao": "Mudar número de série através de comando. O comando aumenta 2 em cada parametro de numero de série (Ex: o que era 1 fica 3, o que era 2 fica 4)",
+        "comando": "update parametro set valor=valor+2 where parametro in\r\n(\r\n'SERIENFCE',\r\n'SERIENFENTRADA',\r\n'SERIENFSAIDA'\r\n)"
     }
 }
