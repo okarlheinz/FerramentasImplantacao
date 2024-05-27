@@ -71,5 +71,47 @@ body {
 
 
 
+.server-icons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.server-link {
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
+}
+
+.server-link:hover {
+    transform: scale(1.2);
+    transition: transform 0.3s ease;
+}
+
+.server-icon {
+    font-size: 50px;
+    cursor: pointer;
+    color: #007bff;
+    transition: transform 0.3s ease;
+}
+
+.server-description {
+    margin-top: 5px;
+    font-size: 16px;
+    color: #000;
+}
+
+.welcome-message {
+    text-align: center;
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+
 
 
