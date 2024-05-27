@@ -1,4 +1,5 @@
 $(document).ready(function () {
+
     $('.menu-link').on('click', function (event) {
         event.preventDefault(); // Evita a mudança de página padrão
 

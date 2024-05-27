@@ -1,0 +1,14 @@
+{
+    "GradeProdCorrecao": {
+        "descricao": "Este comando serve para caso o cliente tenha esquecido de clicar em 'Sem grade' após cadastrar um produto, e ele localiza todos os produtos que estão assim, e cria a grade 'sem grade'. OBS: Caso tenha mais de uma filial, consultar o comando FILIAL ESTOQUE DE CORREÇÃO.",
+        "comando": "INSERT INTO gradeProd (codigoBase,codigoCor,codigoTamanho,codigoGrade,codigoBarra,filiaisPendentes,descricaoGrade,gradeVendaPrc,gradeQtdMinima,gradeAtivo,GRADEDATAINCLUSAO) SELECT codigo, '0', '0', codigo, codigoBarraProduto, 0, descricao, vendaprc, 0, '1', DATAINCLUSAO FROM produto WHERE codigo NOT IN (SELECT codigograde FROM gradeprod)"
+    },
+    "FilialEstoqueCorrecao": {
+        "descricao": "Este comando serve para complementar o comando GradeProdCorreção. A interrogração deve ser substituida pelo idFilial da quantidade de filiais que o cliente possuir e o comando deverá ser rodado uma vez para cada filial",
+        "comando": "insert into filialEstoque (prodCodigo,idFilial,qtdDisp,qtdEst,qtdReserv,qtdAssist,qtdPed, entradas,saidas,filiaisPendentes,qtddispbal,qtdconsignacao,qtddev,qtdinicio) select codigograde,?,0,0,0,0,0,0,0,0,0,0,0,0 from gradeprod where codigograde not in (select prodCodigo from filialEstoque where idfilial=?)"
+    },
+    "FiliaisPendentes": {
+        "descricao": "Este comando roda o filiais pendentes já calculado automáticamente para todas as filiais. Deve ser rodado no servidor e só precisa ser trocado o nome da tabela onde está escrito TABELA",
+        "comando": "update TABELA set filiaispendentes=filiaispendentes | (select (power(2,(select max(idfilial)-1 from filial))*2)-2)"
+    }
+}

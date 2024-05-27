@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comandos Prontos</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .alert {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Comandos Prontos</h2>
+        <p>Selecione qual comando você precisa:</p>
+        <div class="form-group">
+            <select class="form-control" id="comandosSelect">
+                <option value="">Selecione um comando</option>
+                <option value="GradeProdCorrecao">GRADEPROD DE CORREÇÃO</option>
+                <option value="FilialEstoqueCorrecao">FILIAL ESTOQUE DE CORREÇÃO</option>
+                <option value="FiliaisPendentes">FILIAIS PENDENTES</option>
+                <option value="Comando 3">Comando 3</option>
+            </select>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label for="descricaoComando">Descrição/Orientações:</label>
+                <textarea class="form-control" id="descricaoComando" rows="5" readonly></textarea>
+            </div>
+            <div class="col-md-6">
+                <label for="comandoGerado">Comando Gerado:</label>
+                <textarea class="form-control" id="comandoGerado" rows="5" readonly></textarea>
+            </div>
+        </div>
+        <button class="btn btn-primary mt-3" id="gerarComandoBtn">Gerar Comando</button>
+        <button class="btn btn-secondary mt-3 ml-2" id="copiarComandoBtn">Copiar Comando</button>
+        <div class="alert alert-danger mt-3" role="alert">
+            Comando copiado para a área de transferência
+            <button type="button" class="close" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="JS/comandosProntos.js"></script>
+</body>
+</html>
