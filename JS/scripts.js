@@ -1,5 +1,5 @@
-$(document).ready(function() {
-    $('.menu-link').on('click', function(event) {
+$(document).ready(function () {
+    $('.menu-link').on('click', function (event) {
         event.preventDefault(); // Evita a mudança de página padrão
 
         // Remove a classe 'active' de todos os links do menu
@@ -9,12 +9,8 @@ $(document).ready(function() {
         $(this).addClass('active');
 
         // Carrega o conteúdo da página correspondente usando AJAX
-        var pagina = $(this).attr('href');
-        $.ajax({
-            url: pagina,
-            success: function(data) {
-                $('#conteudo').html(data);
-            }
-        });
+        var href = $(this).attr('href');
+        $('#conteudo').load(href);
     });
+
 });

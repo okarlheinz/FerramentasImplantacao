@@ -5,10 +5,12 @@ $(document).ready(function() {
     // Função para buscar endereço pelo CEP
     $('#cep').blur(function() {
         var cep = $(this).val().replace(/\D/g, '');
+        console.log("CEP:", cep);  // Adicione esta linha para depuração
         if (cep != "") {
             var validacep = /^[0-9]{8}$/;
             if (validacep.test(cep)) {
                 $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function(dados) {
+                    console.log("Dados do CEP:", dados);  // Adicione esta linha para depuração
                     if (!("erro" in dados)) {
                         $('#logradouro').val(dados.logradouro);
                         $('#bairro').val(dados.bairro);
@@ -26,6 +28,7 @@ $(document).ready(function() {
             }
         }
     });
+    
 
     $("#gerarComandoBtn").click(function() {
         // Capturando os valores dos campos do formulário
@@ -45,7 +48,9 @@ $(document).ready(function() {
         var email = $("#email").val();
         var caixaLoja = $("#caixaLoja").val();
         var nomeGeral = $("#nomeGeral").val();
-
+    
+        console.log("Dados do formulário:", { idFilial, nomeFantasia, cnpj, inscEst, razaoSocial, logradouro, numero, complemento, bairro, cidade, estado, cep, fone, email, caixaLoja, nomeGeral });  // Adicione esta linha para depuração
+    
         // Montando o comando SQL
         var comando = "INSERT INTO filial (idFilial,regional,subregional,nomeFantasia,cnpj,inscEst,razaoSocial,logradouro,numero,complemento,bairro,cidade,estado,cep,fone,ramal,fax,email,caixaLoja,status,matriz,NOMEGERAL,filiaispendentes,filiaispendentes1) " +
             "VALUES (" +
@@ -79,9 +84,10 @@ $(document).ready(function() {
             "INSERT INTO filialEstoque (prodCodigo,idFilial,qtdDisp,qtdEst,qtdReserv,qtdAssist,qtdPed,entradas,saidas,filiaisPendentes,qtddispbal,qtdconsignacao,qtddev,qtdinicio) SELECT codigograde,'" + idFilial + "',0,0,0,0,0,0,0,0,0,0,0,0 FROM gradeprod; \r\n" +
             "GO \r\n" +
             "UPDATE FILIAL SET filiaispendentes=filiaispendentes | (SELECT (POWER(2,(SELECT MAX(idfilial)-1 FROM filial))*2)-2) WHERE IDFILIAL='" + idFilial + "';";
-
+    
         $("#resultado").text(comando);
     });
+    
 
     $("#copiarResultadoBtn").click(function() {
         var resultadoText = $("#resultado").text();

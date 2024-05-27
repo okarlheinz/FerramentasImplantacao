@@ -32,7 +32,6 @@
                 <option value="fornecedor">Fornecedor</option>
                 <option value="composicaoprod">Composição</option>
                 <option value="transportador">Transportador</option>
-                
             </select>
             <!-- Adicione mais checkboxes para outras tabelas aqui -->
         </div>
@@ -40,9 +39,11 @@
         <button type="button" class="btn btn-success mt-3" id="copiarResultadoBtn" style="display: none;">
             <i class="bi bi-copy"></i> Copiar Resultado
         </button>
-
     </form>
     <textarea id="resultado" class="form-control mt-3" rows="5" readonly></textarea>
+    <div id="alerta" class="alert alert-danger mt-3" role="alert" style="display: none;">
+        Comando copiado para a área de transferência!
+    </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

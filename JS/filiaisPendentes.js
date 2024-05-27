@@ -60,7 +60,7 @@ $(document).ready(function () {
         tempInput.val(resultado).select();
         document.execCommand('copy');
         tempInput.remove();
-        alert('Resultado copiado para a área de transferência!');
+        $("#alerta").slideDown(); // Exibe a div de alerta
     });
     
     function calcularValorSubstituicao(idFilial) {
