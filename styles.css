@@ -112,6 +112,31 @@ body {
     margin-top: 10px;
 }
 
+.login-container {
+    width: 80%; /* Defina a largura desejada */
+    margin: 0 auto; /* Centraliza o contêiner */
+}
 
+.welcome-message {
+    color: white;
+    font-size: 18px; /* Altere o tamanho da fonte conforme desejado */
+    margin-bottom: 5px; /* Reduza a margem inferior conforme desejado */
+}
 
+.success-message {
+    position: fixed;
+    bottom: 10px;
+    right: 10px; /* Alterado para o canto inferior direito */
+    width: 300px;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+    cursor: pointer;
+}
+
+.highlight-row:hover {
+    background-color: #f0f8ff !important;
+}
 
