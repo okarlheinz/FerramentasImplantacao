@@ -28,6 +28,11 @@ $(document).ready(function() {
         tempInput.val(senha).select();
         document.execCommand('copy');
         tempInput.remove();
-        alert('Senha copiada para a área de transferência!');
+        
+        $('.alert-custom').show().delay(3000).fadeOut();
+    });
+
+    $(document).on('click', '.alert-custom .close', function() {
+        $(this).parent().hide();
     });
 });
