@@ -38,5 +38,25 @@
     {
         "arquivo": "Pasta Instala Completa",
         "link": "https://drive.google.com/drive/folders/1r1nV-co7tO5CoZ16qti3yvXeyaS143QO?usp=sharing"
+    },
+    {
+        "arquivo": "InstaladorNFe4.0CDS.exe",
+        "link": "http://198.49.71.152:800/cdsnfe/InstaladorNFe4.0CDS.exe"
+    },
+    {
+        "arquivo": "CDSNFe.rar",
+        "link": "http://198.49.71.152:800/cdsnfe/CDSNFE.rar"
+    },
+    {
+        "arquivo": "CDS_Comercial_NFe.rar",
+        "link": "http://198.49.71.152:800/cdsnfe/CDS_Comercial_NFe.rar"
+    },
+    {
+        "arquivo": "AtualizadorNFe.exe",
+        "link": "http://198.49.71.152:800/cdsnfe/AtualizadorNFe.exe"
+    },
+    {
+        "arquivo": "Dependências_NFe.rar",
+        "link": "http://198.49.71.152:800/cdsnfe/setup_nfe_dependencies.rar"
     }
 ]
