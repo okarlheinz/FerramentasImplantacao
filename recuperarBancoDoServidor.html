@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar Banco do Servidor</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="CSS/recuperarBancoDoServidor.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h2>Recuperar Banco do Servidor</h2>
+        <h5>Recuperar os dados de uma filial específica</h5>
+        <form id="formRecuperarBanco">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="idFilial">ID Filial</label>
+                        <input type="number" class="form-control" id="idFilial" placeholder="Insira o ID Filial" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="nomeFantasia">Nome Fantasia</label>
+                        <input type="text" class="form-control" id="nomeFantasia" placeholder="Nome Fantasia da filial" required>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary" id="gerarComandoBtn">Gerar Comando</button>
+            <button type="button" class="btn btn-success" id="copiarResultadoBtn">
+                <i class="bi bi-copy"></i> Copiar Resultado
+            </button>
+        </form>
+        <textarea id="resultado" class="mt-3 form-control" rows="5" readonly></textarea>
+        <div id="alerta" class="alert alert-danger mt-3" role="alert" style="display: none;">
+            Comando copiado para a área de transferência!
+            <button onclick="fecharAlerta()">x</button>
+        </div>
+    </div>
+
+    <!-- <div id="alerta">
+        Copiado para a área de transferência!
+        <button onclick="fecharAlerta()">x</button>
+    </div> -->
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="JS/recuperarBancoDoServidor.js"></script>
+</body>
+
+</html>

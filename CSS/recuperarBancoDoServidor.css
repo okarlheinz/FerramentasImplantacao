@@ -1,0 +1,25 @@
+.form-group {
+    margin-right: 15px;
+}
+
+#resultado {
+    resize: vertical; /* Permite redimensionar verticalmente */
+}
+
+#alerta button {
+    background: none;
+    border: none;
+    color: rgb(170, 63, 63);
+    font-size: 20px;
+    line-height: 20px;
+    cursor: pointer;
+    float: right;
+}
+
+textarea {
+    width: 100%;
+    height: 200px;
+    resize: none;
+}
+
+
