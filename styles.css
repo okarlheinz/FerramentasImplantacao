@@ -148,8 +148,6 @@ body {
     margin: 0 auto; /* Centraliza o contêiner */
 }
 
-.welcome-message {
-    color: white;
-    font-size: 18px; /* Altere o tamanho da fonte conforme desejado */
-    margin-bottom: 5px; /* Reduza a margem inferior conforme desejado */
+#videoPlayer {
+    margin-top: 20px;
 }
