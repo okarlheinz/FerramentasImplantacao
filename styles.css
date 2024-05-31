@@ -70,7 +70,7 @@ body {
     width: 100%;
 }
 
-.menu-link {
+.menu-link:not(.submenu) {
     color: #fff;
     text-decoration: none;
     display: block;
@@ -80,16 +80,19 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
-.menu-link:hover {
+.menu-link:not(.submenu):hover {
     background-color: #007bff;
+    color: #fff;
 }
 
-.menu-link.active {
+.menu-link:not(.submenu).active {
     background-color: #007bff;
+    color: #fff;
 }
 
 .menu-link:not(.active) {
     background-color: #343a40;
+    color: #fff;
 }
 
 .submenu {
@@ -104,6 +107,12 @@ body {
 
 .submenu .menu-link:hover {
     background-color: #4c5258;
+}
+
+.submenu .menu-link:hover,
+.submenu .menu-link.active {
+    color: #fff;
+    text-decoration: none;
 }
 
 .content {
