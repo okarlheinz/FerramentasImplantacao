@@ -13,6 +13,7 @@
 
 .card-body {
     padding: 1rem;
+    cursor: pointer; /* Adiciona o cursor pointer ao passar o mouse */
 }
 
 .card-title {
