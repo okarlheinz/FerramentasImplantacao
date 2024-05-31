@@ -6,7 +6,7 @@ function hideSuccessMessage() {
 $(document).ready(function () {
     // Função para carregar os dados da tabela
     function loadTableData() {
-        $.getJSON('json/downloads.json', function (data) {
+        $.getJSON('JSON/downloads.json', function (data) {
             var tableBody = $('#downloadsTable');
             tableBody.empty(); // Limpa a tabela antes de adicionar novos dados
             $.each(data, function (index, item) {
