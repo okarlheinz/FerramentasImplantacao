@@ -2,8 +2,43 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
+    background-image: url('./IMG/wallpaper.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
+.container {
+    background-color: rgba(255, 255, 255, 0.9); /* Fundo branco com 90% de opacidade */
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
+}
+
+.table {
+    background-color: white; /* Fundo branco sólido para a tabela */
+    border-radius: 5px;
+    overflow: hidden; /* Para bordas arredondadas */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para a tabela */
+}
+
+.success-message {
+    position: fixed;
+    bottom: 10px;
+    right: 10px; /* Alterado para o canto inferior direito */
+    width: 300px;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+    cursor: pointer;
+}
+
+.highlight-row:hover {
+    background-color: #f0f8ff !important;
+}
 
 .sidebar {
     position: fixed;
@@ -18,7 +53,6 @@ body {
     align-items: center;
     padding-top: 20px; /* Espaço superior para a logo */
 }
-
 
 .logo-container {
     width: 100%;
@@ -62,14 +96,11 @@ body {
     color: #fff; /* Cor do texto dos itens não ativos */
 }
 
-
 .content {
     margin-left: 200px; /* Espaço para a largura da sidebar */
     padding: 15px;
     width: calc(100% - 200px); /* Ajusta a largura do conteúdo */
 }
-
-
 
 .server-icons {
     text-align: center;
@@ -122,21 +153,3 @@ body {
     font-size: 18px; /* Altere o tamanho da fonte conforme desejado */
     margin-bottom: 5px; /* Reduza a margem inferior conforme desejado */
 }
-
-.success-message {
-    position: fixed;
-    bottom: 10px;
-    right: 10px; /* Alterado para o canto inferior direito */
-    width: 300px;
-    background-color: #007bff;
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-    display: none;
-    cursor: pointer;
-}
-
-.highlight-row:hover {
-    background-color: #f0f8ff !important;
-}
-
