@@ -9,24 +9,24 @@ body {
 }
 
 .container {
-    background-color: rgba(255, 255, 255, 0.9); /* Fundo branco com 90% de opacidade */
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 20px;
     border-radius: 10px;
     margin-top: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .table {
-    background-color: white; /* Fundo branco sólido para a tabela */
+    background-color: white;
     border-radius: 5px;
-    overflow: hidden; /* Para bordas arredondadas */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para a tabela */
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .success-message {
     position: fixed;
     bottom: 10px;
-    right: 10px; /* Alterado para o canto inferior direito */
+    right: 10px;
     width: 300px;
     background-color: #007bff;
     color: white;
@@ -45,19 +45,19 @@ body {
     top: 0;
     left: 0;
     width: 200px;
-    height: 100vh; /* Altura total da janela */
-    background-color: #343a40; /* Cor de fundo escura */
+    height: 100vh;
+    background-color: #343a40;
     z-index: 1000;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 20px; /* Espaço superior para a logo */
+    padding-top: 20px;
 }
 
 .logo-container {
     width: 100%;
     text-align: center;
-    margin-bottom: 20px; /* Espaço abaixo da logo */
+    margin-bottom: 20px;
     padding: 15px;
 }
 
@@ -71,35 +71,45 @@ body {
 }
 
 .menu-link {
-    color: #fff; /* Cor do texto do menu */
+    color: #fff;
     text-decoration: none;
     display: block;
     padding: 10px 15px;
     width: 100%;
-    background-color: #343a40; /* Cor de fundo dos links do menu */
-    transition: background-color 0.3s, color 0.3s; /* Transição suave para mudanças de cor */
+    background-color: #343a40;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .menu-link:hover {
-    background-color: #007bff; /* Cor de fundo ao passar o mouse */
-    color: #fff;
+    background-color: #007bff;
 }
 
 .menu-link.active {
-    background-color: #007bff; /* Cor de fundo do item ativo */
-    color: #fff;
+    background-color: #007bff;
 }
 
-/* Estilo para os itens do menu que não estão ativos */
 .menu-link:not(.active) {
-    background-color: #343a40; /* Cor de fundo dos itens não ativos */
-    color: #fff; /* Cor do texto dos itens não ativos */
+    background-color: #343a40;
+}
+
+.submenu {
+    display: none;
+    padding-left: 20px;
+    background-color: #3c4248;
+}
+
+.submenu .menu-link {
+    background-color: #3c4248;
+}
+
+.submenu .menu-link:hover {
+    background-color: #4c5258;
 }
 
 .content {
-    margin-left: 200px; /* Espaço para a largura da sidebar */
+    margin-left: 200px;
     padding: 15px;
-    width: calc(100% - 200px); /* Ajusta a largura do conteúdo */
+    width: calc(100% - 200px);
 }
 
 .server-icons {
@@ -144,12 +154,10 @@ body {
 }
 
 .login-container {
-    width: 80%; /* Defina a largura desejada */
-    margin: 0 auto; /* Centraliza o contêiner */
+    width: 80%;
+    margin: 0 auto;
 }
 
 #videoPlayer {
     margin-top: 20px;
 }
-
-
