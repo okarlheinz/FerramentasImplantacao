@@ -29,11 +29,11 @@
                 </div>
             </div>
             <button type="button" class="btn btn-primary" id="gerarComandoBtn">Gerar Comando</button>
-            <button type="button" class="btn btn-success" id="copiarResultadoBtn">
+            <button type="button" class="btn btn-success" id="copiarResultadoBtn" style="display: none;">
                 <i class="bi bi-copy"></i> Copiar Resultado
             </button>
         </form>
-        <textarea id="resultado" class="mt-3 form-control" rows="5" readonly></textarea>
+        <textarea id="resultado" class="mt-3 form-control" rows="10" readonly></textarea>
         <div id="alerta" class="alert alert-danger mt-3" role="alert" style="display: none;">
             Comando copiado para a área de transferência!
             <button onclick="fecharAlerta()">x</button>

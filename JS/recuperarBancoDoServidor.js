@@ -83,6 +83,7 @@ update configuracao set servidor='0'
         `;
 
         $("#resultado").val(comando.trim());
+        $("#copiarResultadoBtn").show(); // Mostra o botão de copiar resultado
     });
 
     $("#copiarResultadoBtn").click(function() {
