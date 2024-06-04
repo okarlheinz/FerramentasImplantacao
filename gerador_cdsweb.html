@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de CDSWEB</title>
+    <link rel="stylesheet" href="CSS/cdsweb.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-group">
+            <label for="companyName">Nome da Empresa:</label>
+            <input type="text" id="companyName" placeholder="Ex: Kontak Lentes">
+        </div>
+        <div class="form-group">
+            <label for="cnpj">CNPJ:</label>
+            <input type="text" id="cnpj" placeholder="Ex: 16.971.902/0001-05">
+        </div>
+        <div class="button-group">
+            <button id="generateButton" onclick="generateCDSWEB()">Gerar CDSWEB</button>
+            <button id="copyButton" style="display: none;" onclick="copyToClipboard()">Copiar Comando</button>
+        </div>
+        <textarea id="resultado" class="form-control mt-3" rows="10" readonly></textarea>
+        <div id="alerta" class="alert alert-danger mt-3" role="alert" style="display: none;">
+            Comando copiado para a área de transferência!
+        </div>
+    </div>
+
+    <script src="JS/cdsweb.js"></script>
+</body>
+</html>
