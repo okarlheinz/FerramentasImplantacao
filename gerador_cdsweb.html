@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerador de CDSWEB</title>
     <link rel="stylesheet" href="CSS/cdsweb.css">
 </head>
+
 <body>
-    <div class="container">
+    <div class="container mt-5">
+        <h2>Criador CDSWEB</h2>
         <div class="form-group">
-            <label for="companyName">Nome da Empresa:</label>
-            <input type="text" id="companyName" placeholder="Ex: Kontak Lentes">
-        </div>
-        <div class="form-group">
-            <label for="cnpj">CNPJ:</label>
-            <input type="text" id="cnpj" placeholder="Ex: 16.971.902/0001-05">
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="companyName">Nome da Empresa:</label>
+                    <input type="text" id="companyName" placeholder="Ex: Kontak Lentes">
+                </div>
+                <div class="col-md-6">
+                    <label for="cnpj">CNPJ:</label>
+                    <input type="text" id="cnpj" placeholder="Ex: 16.971.902/0001-05">
+                </div>
+            </div>
         </div>
         <div class="button-group">
             <button id="generateButton" onclick="generateCDSWEB()">Gerar CDSWEB</button>
@@ -28,4 +35,5 @@
 
     <script src="JS/cdsweb.js"></script>
 </body>
+
 </html>
