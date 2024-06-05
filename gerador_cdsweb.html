@@ -31,6 +31,16 @@
         <div id="alerta" class="alert alert-danger mt-3" role="alert" style="display: none;">
             Comando copiado para a área de transferência!
         </div>
+
+        <h2 class="mt-5">Gerar Script SQL</h2>
+        <div class="button-group">
+            <button id="generateSqlButton" class=" mt-col-2" onclick="generateSQL()">Gerar script SQL</button>
+            <button id="copySqlButton" class=" mt-col-2" style="display: none;" onclick="copySQLToClipboard()">Copiar Script SQL</button>
+        </div>
+        <textarea id="sqlOutput" class="form-control mt-3" rows="10" readonly></textarea>
+        <div id="sqlAlert" class="alert alert-danger mt-3" role="alert" style="display: none;">
+            Script SQL copiado para a área de transferência!
+        </div>
     </div>
 
     <script src="JS/cdsweb.js"></script>

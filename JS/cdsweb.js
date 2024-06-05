@@ -1,3 +1,5 @@
+// cdsweb.js
+
 function generateRandomPassword(length) {
     const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     let password = "";
@@ -33,19 +35,24 @@ function generateCDSWEB() {
     const databaseName = formatDatabaseName(companyName);
 
     const output = `
-CDSWEB
-User:  ${cdswebUser}
-Pass:  ${cdswebPass}
+**CDSWEB**
+**User:**  ${cdswebUser}
+**Pass:**  ${cdswebPass}
 
-ODBC
-User:  ${odbcUser}
-Pass:  ${odbcPass}
-Banco:  ${databaseName}
-IP: 216.245.218.2,4504
+**ODBC**
+**User:**  ${odbcUser}
+**Pass:**  ${odbcPass}
+**Banco:**  ${databaseName}
+**IP:** 216.245.218.2,4504
     `;
 
     document.getElementById('resultado').value = output.trim();
     document.getElementById('copyButton').style.display = 'inline';
+
+    // Armazena os dados gerados para uso posterior na geração do SQL
+    sessionStorage.setItem('odbcUser', odbcUser);
+    sessionStorage.setItem('odbcPass', odbcPass);
+    sessionStorage.setItem('databaseName', databaseName);
 }
 
 function copyToClipboard() {
@@ -68,4 +75,52 @@ function showAlert() {
 function closeAlert() {
     const alertBox = document.getElementById('alerta');
     alertBox.style.display = 'none';
+}
+
+function generateSQL() {
+    const username = sessionStorage.getItem('odbcUser');
+    const password = sessionStorage.getItem('odbcPass');
+    const databaseName = sessionStorage.getItem('databaseName');
+
+    if (!username || !password || !databaseName) {
+        alert("Por favor, gere as credenciais CDSWEB primeiro.");
+        return;
+    }
+
+    const sqlScript = `
+-- Crie um login no SQL Server
+CREATE LOGIN ${username} WITH PASSWORD = '${password}';
+
+-- Selecione o banco de dados no qual você deseja criar o usuário
+USE ${databaseName};
+
+-- Crie um usuário para o banco de dados
+CREATE USER ${username} FOR LOGIN ${username};
+
+-- Adicione o usuário aos papéis de banco de dados necessários
+EXEC sp_addrolemember 'db_accessadmin', '${username}';
+EXEC sp_addrolemember 'db_datareader', '${username}';
+EXEC sp_addrolemember 'db_datawriter', '${username}';
+EXEC sp_addrolemember 'db_owner', '${username}';
+`;
+
+    document.getElementById('sqlOutput').value = sqlScript.trim();
+    document.getElementById('copySqlButton').style.display = 'inline';
+}
+
+function copySQLToClipboard() {
+    const sqlOutput = document.getElementById('sqlOutput').value;
+    navigator.clipboard.writeText(sqlOutput).then(function() {
+        showSQLAlert();
+    }, function(err) {
+        console.error('Erro ao copiar texto: ', err);
+    });
+}
+
+function showSQLAlert() {
+    const alertBox = document.getElementById('sqlAlert');
+    alertBox.style.display = 'block';
+    setTimeout(function() {
+        alertBox.style.display = 'none';
+    }, 10000);
 }

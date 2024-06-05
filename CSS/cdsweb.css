@@ -52,6 +52,23 @@ button {
     background-color: #218838;
 }
 
+/* Adicione essas regras para os novos botões */
+#generateSqlButton {
+    background-color: #007bff; /* Cor do botão "Gerar CDSWEB" */
+}
+
+#generateSqlButton:hover {
+    background-color: #0056b3; /* Cor do botão "Gerar CDSWEB" ao passar o mouse */
+}
+
+#copySqlButton {
+    background-color: #28a745; /* Cor do botão "Copiar Comando" */
+}
+
+#copySqlButton:hover {
+    background-color: #218838; /* Cor do botão "Copiar Comando" ao passar o mouse */
+}
+
 textarea {
     width: 100%;
     padding: 10px;
