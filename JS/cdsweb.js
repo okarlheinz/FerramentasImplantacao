@@ -89,7 +89,10 @@ function generateSQL() {
 
     const sqlScript = `
 -- Crie um login no SQL Server
-CREATE LOGIN ${username} WITH PASSWORD = '${password}';
+CREATE LOGIN ${username} 
+WITH PASSWORD = '${password}', 
+CHECK_POLICY = OFF, 
+CHECK_EXPIRATION = OFF;
 
 -- Selecione o banco de dados no qual você deseja criar o usuário
 USE ${databaseName};
