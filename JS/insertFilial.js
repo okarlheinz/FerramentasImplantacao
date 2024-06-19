@@ -11,11 +11,11 @@ $(document).ready(function() {
                     $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function(dados) {
                         console.log("Dados do CEP:", dados);
                         if (!("erro" in dados)) {
-                            $('#logradouro').val(dados.logradouro);
-                            $('#bairro').val(dados.bairro);
-                            $('#cidade').val(dados.localidade);
-                            $('#estado').val(dados.uf);
-                            $('#complemento').val(dados.complemento);
+                            $('#logradouro').val(dados.logradouro.toUpperCase());
+                            $('#bairro').val(dados.bairro.toUpperCase());
+                            $('#cidade').val(dados.localidade.toUpperCase());
+                            $('#estado').val(dados.uf.toUpperCase());
+                            $('#complemento').val(dados.complemento.toUpperCase());
                             $('#numero').val('');
                             $('#numero').focus();
                         } else {
@@ -28,30 +28,62 @@ $(document).ready(function() {
             }
         });
 
-        $("#gerarComandoBtn").click(function() {
-            var idFilial = $("#idFilial").val();
-            var nomeFantasia = $("#nomeFantasia").val();
-            var cnpj = $("#cnpj").val();
-            var inscEst = $("#inscEst").val();
-            var razaoSocial = $("#razaoSocial").val();
-            var logradouro = $("#logradouro").val();
-            var numero = $("#numero").val();
-            var complemento = $("#complemento").val();
-            var bairro = $("#bairro").val();
-            var cidade = $("#cidade").val();
-            var estado = $("#estado").val();
-            var cep = $("#cep").val();
-            var fone = $("#fone").val();
-            var email = $("#email").val();
-            var caixaLoja = $("#caixaLoja").val();
-            var nomeGeral = $("#nomeGeral").val();
+        var estados = {
+            'AC': 'Acre',
+            'AL': 'Alagoas',
+            'AP': 'Amapá',
+            'AM': 'Amazonas',
+            'BA': 'Bahia',
+            'CE': 'Ceará',
+            'DF': 'Distrito Federal',
+            'ES': 'Espírito Santo',
+            'GO': 'Goiás',
+            'MA': 'Maranhão',
+            'MT': 'Mato Grosso',
+            'MS': 'Mato Grosso do Sul',
+            'MG': 'Minas Gerais',
+            'PA': 'Pará',
+            'PB': 'Paraíba',
+            'PR': 'Paraná',
+            'PE': 'Pernambuco',
+            'PI': 'Piauí',
+            'RJ': 'Rio de Janeiro',
+            'RN': 'Rio Grande do Norte',
+            'RS': 'Rio Grande do Sul',
+            'RO': 'Rondônia',
+            'RR': 'Roraima',
+            'SC': 'Santa Catarina',
+            'SP': 'São Paulo',
+            'SE': 'Sergipe',
+            'TO': 'Tocantins'
+        };
 
-            console.log("Dados do formulário:", { idFilial, nomeFantasia, cnpj, inscEst, razaoSocial, logradouro, numero, complemento, bairro, cidade, estado, cep, fone, email, caixaLoja, nomeGeral });
+        $("#gerarComandoBtn").click(function() {
+            var idFilial = $("#idFilial").val().toUpperCase();
+            var nomeFantasia = $("#nomeFantasia").val().toUpperCase();
+            var cnpj = $("#cnpj").val().toUpperCase();
+            var inscEst = $("#inscEst").val().toUpperCase();
+            var razaoSocial = $("#razaoSocial").val().toUpperCase();
+            var logradouro = $("#logradouro").val().toUpperCase();
+            var numero = $("#numero").val().toUpperCase();
+            var complemento = $("#complemento").val().toUpperCase();
+            var bairro = $("#bairro").val().toUpperCase();
+            var cidade = $("#cidade").val().toUpperCase();
+            var estadoSigla = $("#estado").val().toUpperCase();
+            var cep = $("#cep").val().toUpperCase();
+            var fone = $("#fone").val().toUpperCase();
+            var email = $("#email").val().toUpperCase();
+            var caixaLoja = $("#caixaLoja").val().toUpperCase();
+            var nomeGeral = $("#nomeGeral").val().toUpperCase();
+
+            var estadoNome = estados[estadoSigla].toUpperCase();
+
+            console.log("Dados do formulário:", { idFilial, nomeFantasia, cnpj, inscEst, razaoSocial, logradouro, numero, complemento, bairro, cidade, estadoSigla, estadoNome, cep, fone, email, caixaLoja, nomeGeral });
 
             var comando = "INSERT INTO filial (idFilial,regional,subregional,nomeFantasia,cnpj,inscEst,razaoSocial,logradouro,numero,complemento,bairro,cidade,estado,cep,fone,ramal,fax,email,caixaLoja,status,matriz,NOMEGERAL,filiaispendentes,filiaispendentes1) " +
                 "VALUES (" +
                 "'" + idFilial + "', \r\n" +
-                "'" + estado + "', \r\n" +
+                "'" + estadoNome + "', \r\n" +
                 "'" + cidade + "', \r\n" +
                 "'" + nomeFantasia + "', \r\n" +
                 "'" + cnpj + "', \r\n" +
@@ -62,7 +94,7 @@ $(document).ready(function() {
                 "'" + complemento + "', \r\n" +
                 "'" + bairro + "', \r\n" +
                 "'" + cidade + "', \r\n" +
-                "'" + estado + "', \r\n" +
+                "'" + estadoSigla + "', \r\n" +
                 "'" + cep + "', \r\n" +
                 "'" + fone + "', \r\n" +
                 "'', \r\n" +
