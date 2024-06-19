@@ -192,3 +192,12 @@ body {
 #videoPlayer {
     margin-top: 20px;
 }
+
+.alert {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 300px;
+    z-index: 1050;
+    display: none;
+}

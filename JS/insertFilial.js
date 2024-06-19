@@ -91,7 +91,11 @@ $(document).ready(function() {
             tempInput.val(resultadoText).select();
             document.execCommand("copy");
             tempInput.remove();
-            alert("Comando copiado para a área de transferência!");
+            $(".alert").fadeIn().delay(2000).fadeOut();
+        });
+
+        $(".alert button.close").click(function() {
+            $(".alert").fadeOut();
         });
     }, 500); // Adiciona um atraso de 500ms
 });
