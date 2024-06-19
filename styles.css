@@ -52,6 +52,27 @@ body {
     flex-direction: column;
     align-items: center;
     padding-top: 20px;
+    overflow-y: auto; /* Permite o scroll vertical */
+}
+
+/* Custom scrollbar styles for WebKit browsers (Chrome, Safari) */
+.sidebar::-webkit-scrollbar {
+    width: 5px; /* Width of the scrollbar */
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3); /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Rounded corners */
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.5); /* Color when hovered */
+}
+
+/* Custom scrollbar styles for Firefox */
+.sidebar {
+    scrollbar-width: thin; /* Thin scrollbar */
+    scrollbar-color: rgba(255, 255, 255, 0.3) transparent; /* Thumb and track color */
 }
 
 .logo-container {
@@ -68,6 +89,7 @@ body {
 
 .menu-container {
     width: 100%;
+    overflow-y: auto; /* Garante que o menu interno também permita scroll, se necessário */
 }
 
 .menu-link:not(.submenu) {
