@@ -201,3 +201,46 @@ body {
     z-index: 1050;
     display: none;
 }
+
+.useful-links {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.useful-title {
+    font-size: 24px;
+    font-weight: bold;
+    /* color: #007bff; */
+    margin-bottom: 20px;
+}
+
+.link-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.link-item {
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    transition: transform 0.3s ease;
+}
+
+.link-item:hover {
+    transform: scale(1.2);
+}
+
+.link-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.link-description {
+    font-size: 16px;
+    color: #000;
+}
