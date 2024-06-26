@@ -11,9 +11,12 @@
 
 <body>
     <div class="container">
-        <h1>Downloads</h1>
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h1>Downloads</h1>
+            <input type="text" id="searchField" class="form-control w-25" placeholder="Buscar...">
+        </div>
 
-        <table class="table table-striped mb-5"> <!-- Adicionando margem inferior para afastar da tabela -->
+        <table class="table table-striped mb-5">
             <thead>
                 <tr>
                     <th>Arquivo</th>
@@ -26,7 +29,6 @@
         </table>
     </div>
 
-    <!-- Div para exibir a mensagem de sucesso -->
     <div class="success-message" id="successMessage">
         Arquivo adicionado com sucesso! <span class="float-right" style="cursor: pointer;" onclick="hideSuccessMessage()">X</span>
     </div>

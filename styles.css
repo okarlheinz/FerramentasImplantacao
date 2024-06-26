@@ -244,3 +244,7 @@ body {
     font-size: 16px;
     color: #000;
 }
+
+#searchField {
+    max-width: 200px;
+}

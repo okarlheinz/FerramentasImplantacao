@@ -20,4 +20,16 @@ $(document).ready(function () {
     // Carrega os dados da tabela na inicialização
     loadTableData();
 
+    // Função para filtrar os dados da tabela
+    $('#searchField').on('keyup', function () {
+        var searchTerm = $(this).val().toLowerCase();
+        $('#downloadsTable tr').each(function () {
+            var arquivo = $(this).find('td').first().text().toLowerCase();
+            if (arquivo.includes(searchTerm)) {
+                $(this).show();
+            } else {
+                $(this).hide();
+            }
+        });
+    });
 });
