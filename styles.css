@@ -248,3 +248,14 @@ body {
 #searchField {
     max-width: 200px;
 }
+
+.commercial-password {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.red-password {
+    color: red;
+    font-weight: bold;
+}

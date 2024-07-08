@@ -17,4 +17,13 @@ $(document).ready(function () {
             $('#conteudo').load(href);
         }
     });
+
+    // Gerar a senha comercial
+    const monthNames = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+    const date = new Date();
+    const month = monthNames[date.getMonth()];
+    const year = date.getFullYear();
+    const password = `vcelj`;
+    const passwordInfo = `Senha <strong>COMERCIAL</strong> ${month} ${year}: <span class="red-password"><i>${password}</i></span>`;
+    $('#commercialPassword').html(passwordInfo);
 });
