@@ -46,5 +46,9 @@
     "selectUltimasVendasFilial": {
         "descricao": "Select para rodar em um banco servidor e descobrir qual a ultima venda de cada filial, junto com o idFilial, nomeFantasia e idVenda",
         "comando": "WITH CTE AS (\r\n    SELECT v.idfilial, v.idvenda, v.dataVenda, ROW_NUMBER() OVER (PARTITION BY v.idfilial ORDER BY v.dataVenda DESC) AS rn\r\n    FROM venda v\r\n)\r\nSELECT c.idfilial, f.nomefantasia, c.idvenda, c.dataVenda\r\nFROM CTE c\r\nJOIN filial f ON c.idfilial = f.idfilial\r\nWHERE c.rn = 1\r\nORDER BY c.dataVenda DESC;"
+    },
+    "configurarApenasConsulta": {
+        "descricao": "Comando para configurar um banco para se tornar APENAS CONSULTA. Uma imagem irá aparecer na tela inicial informando que o banco terá essa finalidade. Para baixar essa imagem, vá no link de downloads e procure por APENASCONSULTA.bmp",
+        "comando": "UPDATE EMPRESA SET LOGOCAMINHO='C:\\Program Files\\CDS\\Comercial\\APENASCONSULTA.bmp'\r\ngo\r\nupdate parametro set valor='0' where parametro in ('usanfe','usanfce','permitevendad1')"
     }
 }
