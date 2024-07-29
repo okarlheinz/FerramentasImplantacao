@@ -53,6 +53,6 @@
     },
     "darSelectRetornandoUpdate": {
         "descricao": "Com esse comando voce consegue dar um SELECT na tabela parametro de algum bando e ele retorna nos resultados um update montado para habilitar os mesmos parametros em outro banco",
-        "comando": "SELECT CONCAT('update parametro set valor=''1'' where parametro=''',\r\n              LTRIM(RTRIM(parametro)),\r\n              '''')\r\nFROM parametro\r\nWHERE valor='1';"
+        "comando": "SELECT 'update parametro set valor=''1'' where parametro=''' + LTRIM(RTRIM(parametro)) + ''''\r\nFROM parametro\r\nWHERE valor='1';"
     }
 }
