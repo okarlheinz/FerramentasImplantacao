@@ -50,5 +50,9 @@
     "configurarApenasConsulta": {
         "descricao": "Comando para configurar um banco para se tornar APENAS CONSULTA. Uma imagem irá aparecer na tela inicial informando que o banco terá essa finalidade. Para baixar essa imagem, vá no link de downloads e procure por APENASCONSULTA.bmp",
         "comando": "UPDATE EMPRESA SET LOGOCAMINHO='C:\\Program Files\\CDS\\Comercial\\APENASCONSULTA.bmp'\r\ngo\r\nupdate parametro set valor='0' where parametro in ('usanfe','usanfce','permitevendad1')"
+    },
+    "darSelectRetornandoUpdate": {
+        "descricao": "Com esse comando voce consegue dar um SELECT na tabela parametro de algum bando e ele retorna nos resultados um update montado para habilitar os mesmos parametros em outro banco",
+        "comando": "SELECT CONCAT('update parametro set valor=''1'' where parametro=''',\r\n              LTRIM(RTRIM(parametro)),\r\n              '''')\r\nFROM parametro\r\nWHERE valor='1';"
     }
 }
