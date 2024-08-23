@@ -1,5 +1,3 @@
-// cdsweb.js
-
 function generateRandomPassword(length) {
     const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     let password = "";
@@ -58,23 +56,10 @@ function generateCDSWEB() {
 function copyToClipboard() {
     const outputText = document.getElementById('resultado').value;
     navigator.clipboard.writeText(outputText).then(function() {
-        showAlert();
+        showAlert(); // Reutiliza a função showAlert para exibir a notificação flutuante
     }, function(err) {
         console.error('Erro ao copiar texto: ', err);
     });
-}
-
-function showAlert() {
-    const alertBox = document.getElementById('alerta');
-    alertBox.style.display = 'block';
-    setTimeout(function() {
-        alertBox.style.display = 'none';
-    }, 10000);
-}
-
-function closeAlert() {
-    const alertBox = document.getElementById('alerta');
-    alertBox.style.display = 'none';
 }
 
 function generateSQL() {
@@ -114,16 +99,16 @@ EXEC sp_addrolemember 'db_owner', '${username}';
 function copySQLToClipboard() {
     const sqlOutput = document.getElementById('sqlOutput').value;
     navigator.clipboard.writeText(sqlOutput).then(function() {
-        showSQLAlert();
+        showAlert(); // Reutiliza a função showAlert para exibir a notificação flutuante
     }, function(err) {
         console.error('Erro ao copiar texto: ', err);
     });
 }
 
-function showSQLAlert() {
-    const alertBox = document.getElementById('sqlAlert');
-    alertBox.style.display = 'block';
+function showAlert() {
+    const alertBox = document.getElementById('floatingNotification');
+    alertBox.classList.add('show');
     setTimeout(function() {
-        alertBox.style.display = 'none';
-    }, 10000);
+        alertBox.classList.remove('show');
+    }, 5000); // 5 segundos
 }

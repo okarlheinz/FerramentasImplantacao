@@ -1,3 +1,4 @@
+/* Container Principal */
 .container {
     background: white;
     padding: 20px;
@@ -5,6 +6,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Grupos de Formulários */
 .form-group {
     margin-bottom: 15px;
 }
@@ -14,18 +16,27 @@ label {
     margin-bottom: 5px;
 }
 
-input {
+input, textarea {
     width: 100%;
     padding: 8px;
     box-sizing: border-box;
+    border-radius: 4px;
 }
 
+/* Personalização dos Textareas */
+textarea {
+    border: 1px solid #ced4da;
+    resize: none;
+}
+
+/* Grupos de Botões */
 .button-group {
     display: flex;
     justify-content: space-between;
     gap: 10px;
 }
 
+/* Botões */
 button {
     flex: 1;
     padding: 10px;
@@ -36,48 +47,23 @@ button {
     color: white;
 }
 
-#generateButton {
+#generateButton, #generateSqlButton {
     background-color: #007bff;
 }
 
-#generateButton:hover {
+#generateButton:hover, #generateSqlButton:hover {
     background-color: #0056b3;
 }
 
-#copyButton {
+#copyButton, #copySqlButton {
     background-color: #28a745;
 }
 
-#copyButton:hover {
+#copyButton:hover, #copySqlButton:hover {
     background-color: #218838;
 }
 
-/* Adicione essas regras para os novos botões */
-#generateSqlButton {
-    background-color: #007bff; /* Cor do botão "Gerar CDSWEB" */
-}
-
-#generateSqlButton:hover {
-    background-color: #0056b3; /* Cor do botão "Gerar CDSWEB" ao passar o mouse */
-}
-
-#copySqlButton {
-    background-color: #28a745; /* Cor do botão "Copiar Comando" */
-}
-
-#copySqlButton:hover {
-    background-color: #218838; /* Cor do botão "Copiar Comando" ao passar o mouse */
-}
-
-textarea {
-    width: 100%;
-    padding: 10px;
-    box-sizing: border-box;
-    border-radius: 4px;
-    border: 1px solid #ced4da;
-    resize: none;
-}
-
+/* Alerta (Não Flutuante) */
 .alert {
     display: none;
     padding: 10px;
@@ -89,5 +75,23 @@ textarea {
 }
 
 .alert.show {
+    display: block;
+}
+
+/* Estilo da Notificação Flutuante */
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(77, 77, 77, 0.8);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: none;
+}
+
+.notification.show {
     display: block;
 }

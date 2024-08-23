@@ -11,36 +11,34 @@
 <body>
     <div class="container mt-5">
         <h2>Criador CDSWEB</h2>
-        <div class="form-group">
-            <div class="row">
-                <div class="col-md-6">
-                    <label for="companyName">Nome da Empresa:</label>
-                    <input type="text" id="companyName" placeholder="Ex: Kontak Lentes">
-                </div>
-                <div class="col-md-6">
-                    <label for="cnpj">CNPJ:</label>
-                    <input type="text" id="cnpj" placeholder="Ex: 16.971.902/0001-05">
-                </div>
+        <div class="form-group row">
+            <div class="col-md-6">
+                <label for="companyName">Nome da Empresa:</label>
+                <input type="text" id="companyName" placeholder="Ex: Kontak Lentes">
+            </div>
+            <div class="col-md-6">
+                <label for="cnpj">CNPJ:</label>
+                <input type="text" id="cnpj" placeholder="Ex: 16.971.902/0001-05">
             </div>
         </div>
+
         <div class="button-group">
             <button id="generateButton" onclick="generateCDSWEB()">Gerar CDSWEB</button>
             <button id="copyButton" style="display: none;" onclick="copyToClipboard()">Copiar Comando</button>
         </div>
+
         <textarea id="resultado" class="form-control mt-3" rows="10" readonly></textarea>
-        <div id="alerta" class="alert alert-danger mt-3" role="alert" style="display: none;">
-            Comando copiado para a área de transferência!
-        </div>
 
         <h2 class="mt-5">Gerar Script SQL</h2>
         <div class="button-group">
-            <button id="generateSqlButton" class=" mt-col-2" onclick="generateSQL()">Gerar script SQL</button>
-            <button id="copySqlButton" class=" mt-col-2" style="display: none;" onclick="copySQLToClipboard()">Copiar Script SQL</button>
+            <button id="generateSqlButton" onclick="generateSQL()">Gerar script SQL</button>
+            <button id="copySqlButton" style="display: none;" onclick="copySQLToClipboard()">Copiar Script SQL</button>
         </div>
+
         <textarea id="sqlOutput" class="form-control mt-3" rows="10" readonly></textarea>
-        <div id="sqlAlert" class="alert alert-danger mt-3" role="alert" style="display: none;">
-            Script SQL copiado para a área de transferência!
-        </div>
+
+        <!-- Alerta flutuante -->
+        <div id="floatingNotification" class="notification">Comando copiado para a área de transferência!</div>
     </div>
 
     <script src="JS/cdsweb.js"></script>
