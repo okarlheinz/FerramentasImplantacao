@@ -92,7 +92,7 @@ INSERT INTO EMPRESAVALIDACAO (FLAG, USUARIO, CHAVE) VALUES ('1','${empresavalida
 
     document.getElementById('commandOutput').value = output.trim();
     document.getElementById('copyCommandButton').style.display = 'inline';
-
+    document.getElementById('insertFilialButton').style.display = 'inline';
 
 }
 
@@ -105,6 +105,11 @@ function copyCommandToClipboard() {
     });
 }
 
+function redirectToInsertFilial() {
+    $('#conteudo').load('insertFilial.html');
+}
+
+
 function showAlert() {
     const alertBox = document.getElementById('floatingNotification');
     alertBox.classList.add('show');
@@ -112,3 +117,5 @@ function showAlert() {
         alertBox.classList.remove('show');
     }, 5000); // 5 segundos
 }
+
+
