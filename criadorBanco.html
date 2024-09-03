@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criador de Banco</title>
+    <link rel="stylesheet" href="CSS/criadorBanco.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/inputmask/5.0.8/inputmask.min.js"></script>
+</head>
+
+
+<body>
+    <div class="container mt-5">
+        <h2>Criador de Banco</h2>
+        <div class="form-group row">
+            <div class="col-md-2">
+                <label for="idempresa">ID Empresa:</label>
+                <input type="number" id="idempresa" placeholder="Ex: 123">
+            </div>
+            <div class="col-md-5">
+                <label for="nomefantasia">Nome Fantasia:</label>
+                <input type="text" id="nomefantasia" placeholder="Ex: Kontak Lentes" maxlength="50">
+            </div>
+            <div class="col-md-5">
+                <label for="razaosocial">Razão Social:</label>
+                <input type="text" id="razaosocial" placeholder="Ex: Kontak Lentes Ltda." maxlength="80">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-4">
+                <label for="cnpj">CNPJ:</label>
+                <input type="text" id="cnpj" placeholder="Ex: 16.971.902/0001-05">
+            </div>
+            <div class="col-md-4">
+                <label for="inscest">Inscrição Estadual:</label>
+                <input type="text" id="inscest" placeholder="Ex: 1234567890">
+            </div>
+            <div class="col-md-4">
+                <label for="cep">CEP:</label>
+                <input type="text" id="cep" placeholder="Ex: 12345-678" maxlength="10">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-5">
+                <label for="logradouro">Logradouro:</label>
+                <input type="text" id="logradouro" placeholder="Ex: Rua das Flores"  maxlength="40">
+            </div>
+            <div class="col-md-2">
+                <label for="numero">Número:</label>
+                <input type="number" id="numero" placeholder="Ex: 123"  maxlength="5">
+            </div>
+            <div class="col-md-5">
+                <label for="bairro">Bairro:</label>
+                <input type="text" id="bairro" placeholder="Ex: Centro" maxlength="30">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-5">
+                <label for="complemento">Complemento:</label>
+                <input type="text" id="complemento" placeholder="Ex: Sala 101"  maxlength="40">
+            </div>
+            <div class="col-md-5">
+                <label for="cidade">Cidade:</label>
+                <input type="text" id="cidade" placeholder="Ex: São Paulo" maxlength="30">
+            </div>
+            <div class="col-md-2">
+                <label for="estado">Estado:</label>
+                <input type="text" id="estado" placeholder="Ex: SP" maxlength="2">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-6">
+                <label for="fone">Telefone:</label>
+                <input type="text" id="fone" placeholder="Ex: (11) 1234-5678">
+            </div>
+            <div class="col-md-6">
+                <label for="celular">Celular:</label>
+                <input type="text" id="celular" placeholder="Ex: (11) 98765-4321">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-6">
+                <label for="nomegeral">Nome Geral:</label>
+                <input type="text" id="nomegeral" placeholder="Ex: João Silva">
+            </div>
+            <div class="col-md-6">
+                <label for="caixaloja">Caixa Loja:</label>
+                <input type="text" id="caixaloja" placeholder="Ex: Caixa 1">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-12">
+                <label for="email">Email:</label>
+                <input type="email" id="email" placeholder="Ex: contato@empresa.com">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-6">
+                <label for="empresavalidacao">Empresa Validação:</label>
+                <input type="text" id="empresavalidacao" placeholder="Ex: Validada">
+            </div>
+            <div class="col-md-6">
+                <label for="senhavalidacao">Senha Validação:</label>
+                <input type="text" id="senhavalidacao" placeholder="Ex: 1234">
+            </div>
+        </div>
+
+        <div class="button-group">
+            <button id="generateCommandButton" onclick="generateCommand()">Gerar Comando SQL</button>
+            <button id="copyCommandButton" style="display: none;" onclick="copyCommandToClipboard()">Copiar Comando SQL</button>
+        </div>
+
+        <textarea id="commandOutput" class="form-control mt-3" rows="10" readonly></textarea>
+
+        <!-- Alerta flutuante -->
+        <div id="floatingNotification" class="notification">Comando copiado para a área de transferência!</div>
+    </div>
+
+    <script src="JS/criadorBanco.js"></script>
+</body>
+
+</html>
