@@ -1,30 +1,3 @@
-$('#cep').blur(function() {
-    var cep = $(this).val().replace(/\D/g, '');
-    console.log("CEP:", cep);
-    if (cep != "") {
-        var validacep = /^[0-9]{8}$/;
-        if (validacep.test(cep)) {
-            $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function(dados) {
-                console.log("Dados do CEP:", dados);
-                if (!("erro" in dados)) {
-                    $('#logradouro').val(dados.logradouro.toUpperCase());
-                    $('#bairro').val(dados.bairro.toUpperCase());
-                    $('#cidade').val(dados.localidade.toUpperCase());
-                    $('#estado').val(dados.uf.toUpperCase());
-                    $('#complemento').val(dados.complemento.toUpperCase());
-                    $('#numero').val('');
-                    $('#numero').focus();
-                } else {
-                    alert("CEP não encontrado.");
-                }
-            });
-        } else {
-            alert("Formato de CEP inválido.");
-        }
-    }
-});
-
-
 function generateCommand() {
     const idempresa = document.getElementById('idempresa').value;
     const nomefantasia = document.getElementById('nomefantasia').value;
@@ -109,13 +82,45 @@ function redirectToInsertFilial() {
     $('#conteudo').load('insertFilial.html');
 }
 
-
 function showAlert() {
-    const alertBox = document.getElementById('floatingNotification');
-    alertBox.classList.add('show');
+    const alertBox = $('#floatingNotification');
+    alertBox.addClass('show');
     setTimeout(function() {
-        alertBox.classList.remove('show');
+        alertBox.removeClass('show');
     }, 5000); // 5 segundos
 }
 
+$(document).ready(function() {
+    // Máscara para o CNPJ
+    $('#cnpj').inputmask("99.999.999/9999-99");
 
+    // Limpeza dos campos para apenas números
+    $('#fone, #celular, #inscest, #cep').on('input', function() {
+        var valor = $(this).val().replace(/\D/g, '');
+        $(this).val(valor);
+    });
+
+    $('#cep').blur(function() {
+        var cep = $(this).val();
+        if (cep != "") {
+            var validacep = /^[0-9]{8}$/;
+            if (validacep.test(cep)) {
+                $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function(dados) {
+                    if (!("erro" in dados)) {
+                        $('#logradouro').val(dados.logradouro.toUpperCase());
+                        $('#bairro').val(dados.bairro.toUpperCase());
+                        $('#cidade').val(dados.localidade.toUpperCase());
+                        $('#estado').val(dados.uf.toUpperCase());
+                        $('#complemento').val(dados.complemento.toUpperCase());
+                        $('#numero').val('');
+                        $('#numero').focus();
+                    } else {
+                        alert("CEP não encontrado.");
+                    }
+                });
+            } else {
+                alert("Formato de CEP inválido.");
+            }
+        }
+    });
+});

@@ -63,6 +63,16 @@ button {
     background-color: #218838;
 }
 
+#insertFilialButton {
+    background-color: #dc3545; /* Vermelho */
+    color: white; /* Fonte branca */
+}
+
+#insertFilialButton:hover {
+    background-color: #c82333; /* Vermelho mais escuro ao passar o mouse */
+}
+
+
 /* Alerta (Não Flutuante) */
 .alert {
     display: none;
@@ -110,13 +120,5 @@ input:focus, textarea:focus {
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Efeito de iluminação azul */
 }
 
-#insertFilialButton {
-    background-color: #dc3545; /* Vermelho */
-    color: white; /* Fonte branca */
-}
-
-#insertFilialButton:hover {
-    background-color: #c82333; /* Vermelho mais escuro ao passar o mouse */
-}
 
 

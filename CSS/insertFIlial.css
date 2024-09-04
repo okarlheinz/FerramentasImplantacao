@@ -1,0 +1,48 @@
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+/* Botões */
+button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    color: white;
+}
+
+/* Estilo botões */
+
+#generateCommandButton {
+    background-color: #007bff;
+}
+
+#generateCommandButton:hover {
+    background-color: #0056b3;
+}
+
+#copyCommandButton {
+    background-color: #28a745;
+}
+
+#copyCommandButton:hover {
+    background-color: #218838;
+}
+
+/* Adiciona margem à direita para separar os inputs em duas colunas */
+.form-group {
+    margin-right: 15px;
+}
+
+.alert {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 300px;
+    z-index: 1050;
+    display: none;
+}
