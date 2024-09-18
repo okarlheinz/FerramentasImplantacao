@@ -88,7 +88,7 @@ VALUES
 ${crt ? `'${crt}'` : ''});`;
 
     const insertFilial = `
-INSERT INTO filial (idfilial, status, regional, subregional, nomefantasia, razaosocial, cnpj, inscest, cep, logradouro, numero, bairro, complemento, cidade, estado, nomegeral, fone, fax, email, caixaloja) 
+INSERT INTO filial (idfilial, status, regional, subregional, nomefantasia, razaosocial, cnpj, inscest, cep, logradouro, numero, bairro, complemento, cidade, estado, nomegeral, fone, fax, email, caixaloja, filiaispendentes, matriz) 
 VALUES (${idempresa},
 '1',
 '${regional}',
@@ -108,7 +108,9 @@ VALUES (${idempresa},
 '${fone}',
 '${celular}',
 '${email}',
-'${caixaloja}');
+'${caixaloja}',
+'0',
+${servidor ? '1' : '0'});
 `;
 
     const insertCaixa = `
