@@ -139,7 +139,13 @@ UPDATE configuracao SET servidor='${servidor ? '1' : '0'}';
 function copyCommandToClipboard() {
     const outputText = document.getElementById('commandOutput').value;
     navigator.clipboard.writeText(outputText).then(function() {
-        showAlert();
+        Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Comando copiado para área de transferencia!",
+            showConfirmButton: false,
+            timer: 1500
+          });
     }, function(err) {
         console.error('Erro ao copiar texto: ', err);
     });
