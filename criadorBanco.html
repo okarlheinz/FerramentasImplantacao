@@ -41,7 +41,14 @@
             </div>
             <div class="col-md-4">
                 <label for="cep">CEP:</label>
-                <input type="text" id="cep" placeholder="Ex: 12345-678" maxlength="10">
+                <div class="input-group">
+                    <input type="text" id="cep" class="form-control" placeholder="Ex: 12345-678" maxlength="10">
+                    <div class="input-group-append">
+                        <button class="btn btn-secondary" type="button" id="buscarCepButton">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="form-group row">

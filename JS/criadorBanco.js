@@ -224,9 +224,9 @@ $(document).ready(function() {
             }
         });
 
-        $('#cep').blur(function() {
-            var cep = $(this).val();
-            if (cep != "") {
+        $('#buscarCepButton').click(function() {
+            var cep = $('#cep').val().replace(/\D/g, '');  // Remove caracteres não numéricos
+            if (cep !== "") {
                 var validacep = /^[0-9]{8}$/;
                 if (validacep.test(cep)) {
                     $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function(dados) {
@@ -247,5 +247,33 @@ $(document).ready(function() {
                 }
             }
         });
+
+
+
+        // BUSCA CEP ANTIGO FUNCIONA COM O BLUR E SEM BOTÃO 
+
+        // $('#cep').blur(function() {
+        //     var cep = $(this).val();
+        //     if (cep != "") {
+        //         var validacep = /^[0-9]{8}$/;
+        //         if (validacep.test(cep)) {
+        //             $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function(dados) {
+        //                 if (!("erro" in dados)) {
+        //                     $('#logradouro').val(dados.logradouro.toUpperCase());
+        //                     $('#bairro').val(dados.bairro.toUpperCase());
+        //                     $('#cidade').val(dados.localidade.toUpperCase());
+        //                     $('#estado').val(dados.uf.toUpperCase());
+        //                     $('#complemento').val(dados.complemento.toUpperCase());
+        //                     $('#numero').val('');
+        //                     $('#numero').focus();
+        //                 } else {
+        //                     alert("CEP não encontrado.");
+        //                 }
+        //             });
+        //         } else {
+        //             alert("Formato de CEP inválido.");
+        //         }
+        //     }
+        // });
     },500)
 });
