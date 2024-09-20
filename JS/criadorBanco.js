@@ -175,6 +175,55 @@ $(document).ready(function() {
             $(this).val(valor);
         });
 
+
+        $('#cnpj').on('blur', function() {
+            var cnpj = $('#cnpj').val().replace(/[^\d]+/g,'');  // Remove máscara para enviar o CNPJ puro
+    
+            if (cnpj.length === 14) {  // Valida se o CNPJ tem 14 dígitos
+                $.ajax({
+                    url: `https://www.receitaws.com.br/v1/cnpj/${cnpj}`,
+                    method: 'GET',
+                    dataType: 'jsonp',
+                    success: function(data) {
+                        if (data.status === "OK") {
+                            // Preenche os campos com os dados retornados
+                            $('#nomefantasia').val(data.fantasia.toUpperCase());
+                            $('#razaosocial').val(data.nome.toUpperCase());
+                            $('#logradouro').val(data.logradouro.toUpperCase());
+                            $('#numero').val(data.numero.toUpperCase());
+                            $('#cep').val(data.cep.toUpperCase().replace(/\D/g, ''));
+                            $('#complemento').val(data.complemento.toUpperCase());
+                            $('#bairro').val(data.bairro.toUpperCase());
+                            $('#cidade').val(data.municipio.toUpperCase());
+                            $('#estado').val(data.uf.toUpperCase());
+                            $('#email').val(data.email.toUpperCase());
+                            $('#fone').val(data.telefone.toUpperCase().replace(/\D/g, ''));
+                            // Adicione outros campos conforme o retorno da API
+                        } else {
+                            Swal.fire({
+                                title: "Erro!",
+                                text: "CNPJ não encontrado.",
+                                icon: "error"
+                              });
+                        }
+                    },
+                    error: function() {
+                        Swal.fire({
+                            title: "Erro!",
+                            text: "Erro ao buscar dados do CNPJ.",
+                            icon: "error"
+                          });
+                    }
+                });
+            } else {
+                Swal.fire({
+                    title: "Erro!",
+                    text: "CNPJ Inválido.",
+                    icon: "error"
+                  });
+            }
+        });
+
         $('#cep').blur(function() {
             var cep = $(this).val();
             if (cep != "") {
