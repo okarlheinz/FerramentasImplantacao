@@ -20,7 +20,14 @@ $(document).ready(function () {
     $('#copiarComandoBtn').click(function () {
         const comandoGerado = $('#comandoGerado').val();
         navigator.clipboard.writeText(comandoGerado);
-        $('.alert').fadeIn().delay(2000).fadeOut();
+        // $('.alert').fadeIn().delay(2000).fadeOut();
+        Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Comando copiado para área de transferencia!",
+            showConfirmButton: false,
+            timer: 1500
+          });
     });
 
     // Fecha a mensagem de alerta ao clicar no botão "X"
