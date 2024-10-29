@@ -19,7 +19,7 @@ $(document).ready(function() {
             "GO \r\n" +
             "INSERT INTO filialEstoque (prodCodigo,idFilial,qtdDisp,qtdEst,qtdReserv,qtdAssist,qtdPed,entradas,saidas,filiaisPendentes,qtddispbal,qtdconsignacao,qtddev,qtdinicio) SELECT codigograde,'" + idFilial + "',0,0,0,0,0,0,0,0,0,0,0,0 FROM gradeprod; \r\n" +
             "GO \r\n" +
-            "UPDATE FILIAL SET filiaispendentes=filiaispendentes | (SELECT (POWER(2,(SELECT MAX(idfilial)-1 FROM filial))*2)-2) WHERE IDFILIAL='" + idFilial + "';";
+            "UPDATE FILIAL SET filiaispendentes=filiaispendentes | (SELECT (POWER(2,(SELECT MAX(idfilial)-1 FROM filial))*2)-2);";
     
         $("#resultado").text(comando);
     });
