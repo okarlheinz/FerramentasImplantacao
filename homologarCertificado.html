@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homologar Certificado</title>
+    <link rel="stylesheet" href="CSS/criadorBanco.css">
+    <script defer src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7/jquery.inputmask.min.js"></script>
+    <script defer src="JS/homologarCertificado.js"></script>
+    </head>
+</head>
+
+
+<body>
+    <div class="container mt-5">
+        <h2>Homologar Certificado</h2>
+        <div class="form-group row">
+            <div class="col-md-4">
+                <label for="cnpj">CNPJ:</label>
+                <input type="text" id="cnpj" placeholder="Ex: 16.971.902/0001-05">
+            </div>
+            <div class="col-md-8">
+                <label for="razaosocial">Razão Social:</label>
+                <input type="text" id="razaosocial" placeholder="Ex: Kontak Lentes Ltda." maxlength="80">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-4">
+                <label for="nomefantasia">Nome Fantasia:</label>
+                <input type="text" id="nomefantasia" placeholder="Ex: Kontak Lentes" maxlength="50">
+            </div>
+            <div class="col-md-4">
+                <label for="inscest">Inscrição Estadual:</label>
+                <input type="text" id="inscest" placeholder="Ex: 1234567890">
+            </div>
+            <div class="col-md-4">
+                <label for="cep">CEP:</label>
+                <div class="input-group">
+                    <input type="text" id="cep" class="form-control" placeholder="Ex: 12345-678" maxlength="10">
+                    <div class="input-group-append">
+                        <button class="btn btn-secondary" type="button" id="buscarCepButton">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-5">
+                <label for="logradouro">Logradouro:</label>
+                <input type="text" id="logradouro" placeholder="Ex: Rua das Flores"  maxlength="40">
+            </div>
+            <div class="col-md-2">
+                <label for="numero">Número:</label>
+                <input type="number" id="numero" placeholder="Ex: 123"  maxlength="5">
+            </div>
+            <div class="col-md-5">
+                <label for="bairro">Bairro:</label>
+                <input type="text" id="bairro" placeholder="Ex: Centro" maxlength="30">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-5">
+                <label for="complemento">Complemento:</label>
+                <input type="text" id="complemento" placeholder="Ex: Sala 101"  maxlength="40">
+            </div>
+            <div class="col-md-5">
+                <label for="cidade">Cidade:</label>
+                <input type="text" id="cidade" placeholder="Ex: São Paulo" maxlength="30">
+            </div>
+            <div class="col-md-2">
+                <label for="estado">Estado:</label>
+                <input type="text" id="estado" placeholder="Ex: SP" maxlength="2">
+            </div>
+        </div>
+                  
+        <div class="form-group row">
+            <div class="col-md-4">
+                <label for="idtoken">Id Token:</label>
+                <input type="text" id="idtoken" placeholder="Ex: 000001">
+            </div>
+            <div class="col-md-8">
+                <label for="csc">CSC:</label>
+                <input type="text" id="csc" placeholder="Ex: G7E95181-9CD5-5AB5-8637-18D11FB827E5" maxlength="36">
+            </div>
+        </div>
+
+
+        <div class="button-group">
+            <button id="generateCommandButton" onclick="generateCommand()"><i class="bi bi-code-slash"></i> Gerar Comando SQL</button>
+            <button id="copyCommandButton" style="display: none;" onclick="copyCommandToClipboard()"><i class="bi bi-copy"></i> Copiar Comando SQL</button>
+        </div>
+
+        <textarea id="commandOutput" class="form-control mt-3" rows="10" readonly></textarea>
+
+        <!-- Alerta flutuante -->
+        <!-- <div id="floatingNotification" class="notification">Comando copiado para a área de transferência!</div> -->
+    </div>
+
+</body>
+
+</html>
