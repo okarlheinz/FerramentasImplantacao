@@ -1,3 +1,15 @@
+// Carrega o JSON de cidades (certifique-se de que está acessível ao JavaScript)
+let ibgeCodes;
+
+fetch('/JSON/ibge_cidades.json')
+    .then(response => response.json())
+    .then(data => {
+        ibgeCodes = data;
+    })
+    .catch(error => {
+        console.error("Erro ao carregar o JSON de códigos IBGE:", error);
+    });
+
 function generateCommand() {
     const idempresa = document.getElementById('idempresa').value.toUpperCase();
     const nomefantasia = document.getElementById('nomefantasia').value.toUpperCase();
@@ -28,33 +40,13 @@ function generateCommand() {
 
     // Dicionário de estados
     const estados = {
-        'AC': 'ACRE',
-        'AL': 'ALAGOAS',
-        'AP': 'AMAPÁ',
-        'AM': 'AMAZONAS',
-        'BA': 'BAHIA',
-        'CE': 'CEARÁ',
-        'DF': 'DISTRITO FEDERAL',
-        'ES': 'ESPÍRITO SANTO',
-        'GO': 'GOIÁS',
-        'MA': 'MARANHÃO',
-        'MT': 'MATO GROSSO',
-        'MS': 'MATO GROSSO DO SUL',
-        'MG': 'MINAS GERAIS',
-        'PA': 'PARÁ',
-        'PB': 'PARAÍBA',
-        'PR': 'PARANÁ',
-        'PE': 'PERNAMBUCO',
-        'PI': 'PIAUÍ',
-        'RJ': 'RIO DE JANEIRO',
-        'RN': 'RIO GRANDE DO NORTE',
-        'RS': 'RIO GRANDE DO SUL',
-        'RO': 'RONDÔNIA',
-        'RR': 'RORAIMA',
-        'SC': 'SANTA CATARINA',
-        'SP': 'SÃO PAULO',
-        'SE': 'SERGIPE',
-        'TO': 'TOCANTINS'
+        'AC': 'ACRE', 'AL': 'ALAGOAS', 'AP': 'AMAPÁ', 'AM': 'AMAZONAS',
+        'BA': 'BAHIA', 'CE': 'CEARÁ', 'DF': 'DISTRITO FEDERAL', 'ES': 'ESPÍRITO SANTO',
+        'GO': 'GOIÁS', 'MA': 'MARANHÃO', 'MT': 'MATO GROSSO', 'MS': 'MATO GROSSO DO SUL',
+        'MG': 'MINAS GERAIS', 'PA': 'PARÁ', 'PB': 'PARAÍBA', 'PR': 'PARANÁ',
+        'PE': 'PERNAMBUCO', 'PI': 'PIAUÍ', 'RJ': 'RIO DE JANEIRO', 'RN': 'RIO GRANDE DO NORTE',
+        'RS': 'RIO GRANDE DO SUL', 'RO': 'RONDÔNIA', 'RR': 'RORAIMA', 'SC': 'SANTA CATARINA',
+        'SP': 'SÃO PAULO', 'SE': 'SERGIPE', 'TO': 'TOCANTINS'
     };
 
     const regional = estados[estado] || estado;
@@ -67,8 +59,18 @@ function generateCommand() {
         crt = '3';
     }
 
+    // Buscar o código IBGE da cidade
+    const cidadeEntry = ibgeCodes.find(entry => entry.Nome.toUpperCase() === cidade && entry.Uf === estado);
+    const codMunicip = cidadeEntry ? cidadeEntry.Codigo : null;
+
+    if (!codMunicip) {
+        alert("Código IBGE da cidade não encontrado.");
+        return;
+    }
+
+    // Comando de inserção com CodMunicip
     const insertEmpresa = `
-INSERT INTO empresa (idempresa, nomefantasia, razaosocial, cnpj, inscest, cep, logradouro, numero, bairro, complemento, cidade, estado, fone, fax, email${crt ? ', crt' : ''}) 
+INSERT INTO empresa (idempresa, nomefantasia, razaosocial, cnpj, inscest, cep, logradouro, numero, bairro, complemento, cidade, estado, CodMunicip, fone, fax, email${crt ? ', crt' : ''}) 
 VALUES 
 (${idempresa},
 '${nomefantasia}',
@@ -82,6 +84,7 @@ VALUES
 '${complemento}',
 '${cidade}',
 '${estado}',
+${codMunicip},
 '${fone}',
 '${celular}',
 '${email}',
@@ -135,7 +138,6 @@ UPDATE configuracao SET servidor='${servidor ? '1' : '0'}';
     document.getElementById('insertFilialButton').style.display = 'inline';
 }
 
-
 function copyCommandToClipboard() {
     const outputText = document.getElementById('commandOutput').value;
     navigator.clipboard.writeText(outputText).then(function() {
@@ -164,9 +166,8 @@ function showAlert() {
 }
 
 $(document).ready(function() {
-
     setTimeout(()=>{
-            // Máscara para o CNPJ
+        // Máscara para o CNPJ
         $('#cnpj').inputmask("99.999.999/9999-99");
 
         // Limpeza dos campos para apenas números
@@ -174,7 +175,6 @@ $(document).ready(function() {
             var valor = $(this).val().replace(/\D/g, '');
             $(this).val(valor);
         });
-
 
         $('#cnpj').on('blur', function() {
             var cnpj = $('#cnpj').val().replace(/[^\d]+/g,'');  // Remove máscara para enviar o CNPJ puro
@@ -186,7 +186,6 @@ $(document).ready(function() {
                     dataType: 'jsonp',
                     success: function(data) {
                         if (data.status === "OK") {
-                            // Preenche os campos com os dados retornados
                             $('#nomefantasia').val(data.fantasia.toUpperCase());
                             $('#razaosocial').val(data.nome.toUpperCase());
                             $('#logradouro').val(data.logradouro.toUpperCase());
@@ -198,13 +197,12 @@ $(document).ready(function() {
                             $('#estado').val(data.uf.toUpperCase());
                             $('#email').val(data.email.toUpperCase());
                             $('#fone').val(data.telefone.toUpperCase().replace(/\D/g, ''));
-                            // Adicione outros campos conforme o retorno da API
                         } else {
                             Swal.fire({
                                 title: "Erro!",
                                 text: "CNPJ não encontrado.",
                                 icon: "error"
-                              });
+                            });
                         }
                     },
                     error: function() {
@@ -212,7 +210,7 @@ $(document).ready(function() {
                             title: "Erro!",
                             text: "Erro ao buscar dados do CNPJ.",
                             icon: "error"
-                          });
+                        });
                     }
                 });
             } else {
@@ -220,7 +218,7 @@ $(document).ready(function() {
                     title: "Erro!",
                     text: "CNPJ Inválido.",
                     icon: "error"
-                  });
+                });
             }
         });
 
@@ -247,33 +245,5 @@ $(document).ready(function() {
                 }
             }
         });
-
-
-
-        // BUSCA CEP ANTIGO FUNCIONA COM O BLUR E SEM BOTÃO 
-
-        // $('#cep').blur(function() {
-        //     var cep = $(this).val();
-        //     if (cep != "") {
-        //         var validacep = /^[0-9]{8}$/;
-        //         if (validacep.test(cep)) {
-        //             $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function(dados) {
-        //                 if (!("erro" in dados)) {
-        //                     $('#logradouro').val(dados.logradouro.toUpperCase());
-        //                     $('#bairro').val(dados.bairro.toUpperCase());
-        //                     $('#cidade').val(dados.localidade.toUpperCase());
-        //                     $('#estado').val(dados.uf.toUpperCase());
-        //                     $('#complemento').val(dados.complemento.toUpperCase());
-        //                     $('#numero').val('');
-        //                     $('#numero').focus();
-        //                 } else {
-        //                     alert("CEP não encontrado.");
-        //                 }
-        //             });
-        //         } else {
-        //             alert("Formato de CEP inválido.");
-        //         }
-        //     }
-        // });
     },500)
 });
