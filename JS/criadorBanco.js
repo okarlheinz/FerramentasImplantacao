@@ -128,7 +128,7 @@ INSERT INTO EMPRESAVALIDACAO (FLAG, USUARIO, CHAVE) VALUES ('1','${empresavalida
 `;
 
     const updateServidor = `
-UPDATE configuracao SET servidor='${servidor ? '1' : '0'}';
+UPDATE configuracao SET servidor='${servidor ? '1' : '0'}', primeirocodigofornecedor='';
 `;
 
     const output = insertEmpresa + "\ngo\n" + insertFilial + "\ngo\n" + insertCaixa + "\ngo\n" + insertEmpresaValidacao + "\ngo\n" + updateServidor;
