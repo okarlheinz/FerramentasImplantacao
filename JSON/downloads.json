@@ -25,11 +25,11 @@
     },
     {
         "arquivo": "Comercial.exe",
-        "link": "https://mega.nz/file/s8IzgQ5L#8hZ6CfUXCikdNUUXGWgbp3BMCa7MWliEYvWlZhulHnA"
+        "link": "https://cdsimplantacao.com.br/downloads/Comercial.exe"
     },
     {
         "arquivo": "CDS_Baixaexe.rar",
-        "link": "https://mega.nz/file/VgAmGC6Y#NS8oZsVj4a2jwg2_PN1kFNNz-_yWkdCQxKfXJfcc4eE"
+        "link": "https://cdsimplantacao.com.br/downloads/CDS_Baixaexe.rar"
     },
     {
         "arquivo": "MANUAL DESENVOLVEDOR PPLA",
@@ -49,7 +49,7 @@
     },
     {
         "arquivo": "BDE.exe",
-        "link": "https://mega.nz/file/o5BkjbzD#5-Gf7_Pqa9Iy5y48CYhbJXQn7o31EyH0xYiOrMaNP6o"
+        "link": "https://cdsimplantacao.com.br/downloads/BDE.exe"
     },
     {
         "arquivo": "etiqueta.bat",
@@ -61,7 +61,7 @@
     },
     {
         "arquivo": "APENASCONSULTA.BMP",
-        "link": "https://drive.google.com/file/d/1xdTXaULPhetHOt3xZwwo03pAFyFFcRjg/view?usp=sharing"
+        "link": "https://cdsimplantacao.com.br/downloads/APENASCONSULTA.rar"
     },
     {
         "arquivo": "FORMULARIO E-COMMERCE",
@@ -74,5 +74,9 @@
     {
         "arquivo": "PLANILHA IMPORTAÇÃO DE CLIENTES DESKTOP",
         "link": "https://cdsimplantacao.com.br/downloads/Import_Clientes_layout_para_DESKTOP.xlsx"
+    },
+    {
+        "arquivo": "PLUGIN SPD BOLETO DESKTOP",
+        "link": "https://cdsimplantacao.com.br/downloads/spdBoleto_3.0.9.3500.exe"
     }
 ]
