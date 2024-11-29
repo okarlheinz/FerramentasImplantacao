@@ -16,17 +16,26 @@ label {
     margin-bottom: 5px;
 }
 
+/* Inputs e Textareas */
 input, textarea {
     width: 100%;
     padding: 8px;
     box-sizing: border-box;
     border-radius: 4px;
+    background-color: #f0f0f0; /* Cinza claro */
+    border: 1px solid #ced4da; /* Borda mais suave */
 }
 
 /* Personalização dos Textareas */
 textarea {
-    border: 1px solid #ced4da;
     resize: none;
+}
+
+/* Foco nos Inputs e Textareas */
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #007bff; /* Azul */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Efeito de iluminação azul */
 }
 
 /* Grupos de Botões */

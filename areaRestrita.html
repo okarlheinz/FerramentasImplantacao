@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criador de Banco</title>
+    <link rel="stylesheet" href="CSS/criadorBanco.css">
+    <script defer src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7/jquery.inputmask.min.js"></script>
+    <script defer src="JS/areaRestrita.js"></script>
+    </head>
+</head>
+
+
+<body>
+    <div id="pageContent" style="display: none;">
+        <div class="container mt-5">
+            <h2>Criador de Banco</h2>
+            <div class="form-group row">
+                <div class="col-md-2">
+                    <label for="idempresa">ID Empresa:</label>
+                    <input type="number" id="idempresa" placeholder="Ex: 123F">
+                </div>
+                <div class="col-md-4">
+                    <label for="cnpj">CNPJ:</label>
+                    <input type="text" id="cnpj" placeholder="Ex: 16.971.902/0001-05">
+                </div>
+                <div class="col-md-6">
+                    <label for="razaosocial">Razão Social:</label>
+                    <input type="text" id="razaosocial" placeholder="Ex: Kontak Lentes Ltda." maxlength="80">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-4">
+                    <label for="nomefantasia">Nome Fantasia:</label>
+                    <input type="text" id="nomefantasia" placeholder="Ex: Kontak Lentes" maxlength="50">
+                </div>
+                <div class="col-md-4">
+                    <label for="inscest">Inscrição Estadual:</label>
+                    <input type="text" id="inscest" placeholder="Ex: 1234567890">
+                </div>
+                <div class="col-md-4">
+                    <label for="cep">CEP:</label>
+                    <div class="input-group">
+                        <input type="text" id="cep" class="form-control" placeholder="Ex: 12345-678" maxlength="10">
+                        <div class="input-group-append">
+                            <button class="btn btn-secondary" type="button" id="buscarCepButton">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-5">
+                    <label for="logradouro">Logradouro:</label>
+                    <input type="text" id="logradouro" placeholder="Ex: Rua das Flores"  maxlength="40">
+                </div>
+                <div class="col-md-2">
+                    <label for="numero">Número:</label>
+                    <input type="number" id="numero" placeholder="Ex: 123"  maxlength="5">
+                </div>
+                <div class="col-md-5">
+                    <label for="bairro">Bairro:</label>
+                    <input type="text" id="bairro" placeholder="Ex: Centro" maxlength="30">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-5">
+                    <label for="complemento">Complemento:</label>
+                    <input type="text" id="complemento" placeholder="Ex: Sala 101"  maxlength="40">
+                </div>
+                <div class="col-md-5">
+                    <label for="cidade">Cidade:</label>
+                    <input type="text" id="cidade" placeholder="Ex: São Paulo" maxlength="30">
+                </div>
+                <div class="col-md-2">
+                    <label for="estado">Estado:</label>
+                    <input type="text" id="estado" placeholder="Ex: SP" maxlength="2">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-6">
+                    <label for="fone">Telefone:</label>
+                    <input type="text" id="fone" placeholder="Ex: (11) 1234-5678">
+                </div>
+                <div class="col-md-6">
+                    <label for="celular">Celular:</label>
+                    <input type="text" id="celular" placeholder="Ex: (11) 98765-4321">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-6">
+                    <label for="nomegeral">Nome Geral:</label>
+                    <input type="text" id="nomegeral" placeholder="Ex: João Silva">
+                </div>
+                <div class="col-md-6">
+                    <label for="caixaloja">Caixa Loja:</label>
+                    <input type="text" id="caixaloja" placeholder="Ex: Caixa 1">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-6">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" class="form-control" placeholder="Ex: contato@empresa.com">
+                </div>
+                <div class="col-md-4 d-flex flex-column">
+                    <label for="regime">Regime:</label>
+                    <select id="regime" class="form-control">
+                        <option value="" disabled selected>Selecione</option>
+                        <option value="simples">Simples Nacional</option>
+                        <option value="normal">Normal</option>
+                    </select>
+                </div>
+                <div class="col-md-2 d-flex flex-column align-items-center justify-content-center">
+                    <label for="servidor" class="text-center">Servidor:</label>
+                    <input type="checkbox" id="servidor" checked>
+                </div>
+            </div>
+                       
+            <div class="form-group row">
+                <div class="col-md-6">
+                    <label for="empresavalidacao">Empresa Validação:</label>
+                    <input type="text" id="empresavalidacao" placeholder="Ex: Validada">
+                </div>
+                <div class="col-md-6">
+                    <label for="senhavalidacao">Senha Validação:</label>
+                    <input type="text" id="senhavalidacao" placeholder="Ex: 1234">
+                </div>
+            </div>
+    
+    
+            <div class="button-group">
+                <button id="generateCommandButton" onclick="generateCommand()"><i class="bi bi-code-slash"></i> Gerar Comando SQL</button>
+                <button id="copyCommandButton" style="display: none;" onclick="copyCommandToClipboard()"><i class="bi bi-copy"></i> Copiar Comando SQL</button>
+                <button id="insertFilialButton" style="display: none;" onclick="redirectToInsertFilial()"><i class="bi bi-link-45deg"></i> Inserir Filial</button>
+            </div>
+    
+            <textarea id="commandOutput" class="form-control mt-3" rows="10" readonly></textarea>
+    
+            <!-- Alerta flutuante -->
+            <!-- <div id="floatingNotification" class="notification">Comando copiado para a área de transferência!</div> -->
+        </div>
+    </div>
+
+</body>
+
+</html>

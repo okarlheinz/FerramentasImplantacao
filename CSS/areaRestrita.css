@@ -1,0 +1,130 @@
+/* Container Principal */
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Grupos de Formulários */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, textarea, .form-control {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+/* Personalização dos Textareas */
+textarea {
+    border: 1px solid #ced4da;
+    resize: none;
+}
+
+/* Grupos de Botões */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+/* Botões */
+button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    color: white;
+}
+
+#generateCommandButton {
+    background-color: #007bff;
+}
+
+#generateCommandButton:hover {
+    background-color: #0056b3;
+}
+
+#copyCommandButton {
+    background-color: #28a745;
+}
+
+#copyCommandButton:hover {
+    background-color: #218838;
+}
+
+#insertFilialButton {
+    background-color: #dc3545; /* Vermelho */
+    color: white; /* Fonte branca */
+}
+
+#insertFilialButton:hover {
+    background-color: #c82333; /* Vermelho mais escuro ao passar o mouse */
+}
+
+
+/* Alerta (Não Flutuante) */
+.alert {
+    display: none;
+    padding: 10px;
+    background-color: #dc3545;
+    color: white;
+    margin-top: 10px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.alert.show {
+    display: block;
+}
+
+/* Estilo da Notificação Flutuante */
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(77, 77, 77, 0.8);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: none;
+}
+
+.notification.show {
+    display: block;
+}
+
+input, textarea, .form-control {
+    background-color: #f0f0f0; /* Cinza claro */
+    border: 1px solid #ced4da;
+    padding: 8px;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+input:focus, textarea:focus, .form-control:focus{
+    outline: none;
+    border-color: #007bff; /* Azul */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Efeito de iluminação azul */
+}
+
+#buscarCepButton {
+    background-color: #878787; /* Um cinza mais claro */
+    color: white; /* Ícone branco */
+    border: 1px solid #ced4da;
+}
+#buscarCepButton:hover {
+    background-color: #b0b0b0; /* Escurece um pouco ao passar o mouse */
+}
