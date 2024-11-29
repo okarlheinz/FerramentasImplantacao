@@ -12,7 +12,7 @@ $(document).ready(function () {
             $.each(data, function (index, item) {
                 var row = $('<tr>').appendTo(tableBody).addClass('highlight-row'); // Adicionando classe para destacar a linha
                 $('<td>').text(item.arquivo).appendTo(row); // Alterado para "arquivo"
-                $('<td>').html('<a href="' + item.link + '" target="_blank">Download</a>').appendTo(row); // Abre em uma nova guia
+                $('<td>').html('<a href="' + item.link + '" target="_blank">Download <i class="fas fa-download ms-2"></i></a>').appendTo(row); // Abre em uma nova guia
             });
         });
     }

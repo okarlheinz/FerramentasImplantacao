@@ -1,40 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Downloads</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link href="styles.css" rel="stylesheet">
-</head>
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link href="styles.css" rel="stylesheet" />
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <div class="d-flex justify-content-between align-items-center mb-3">
-            <h1>Downloads</h1>
-            <input type="text" id="searchField" class="form-control w-25" placeholder="Buscar...">
-        </div>
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h1>Downloads</h1>
+        <input
+          type="text"
+          id="searchField"
+          class="form-control w-25"
+          placeholder="Buscar..."
+        />
+      </div>
 
-        <table class="table table-striped mb-5">
-            <thead>
-                <tr>
-                    <th>Arquivo</th>
-                    <th>Download</th>
-                </tr>
-            </thead>
-            <tbody id="downloadsTable">
-                <!-- Os dados da tabela serão preenchidos dinamicamente aqui -->
-            </tbody>
-        </table>
+      <table class="table table-striped mb-5">
+        <thead>
+          <tr>
+            <th>Arquivo</th>
+            <th>Download</th>
+          </tr>
+        </thead>
+        <tbody id="downloadsTable">
+          <!-- Os dados da tabela serão preenchidos dinamicamente aqui -->
+        </tbody>
+      </table>
     </div>
 
     <div class="success-message" id="successMessage">
-        Arquivo adicionado com sucesso! <span class="float-right" style="cursor: pointer;" onclick="hideSuccessMessage()">X</span>
+      Arquivo adicionado com sucesso!
+      <span
+        class="float-right"
+        style="cursor: pointer"
+        onclick="hideSuccessMessage()"
+        >X</span
+      >
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="JS/downloads.js"></script>
-</body>
-
+  </body>
 </html>
