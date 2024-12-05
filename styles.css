@@ -248,3 +248,15 @@ body {
 #searchField {
     max-width: 200px;
 }
+
+
+.footer {
+    margin-top: auto; 
+    text-align: center;
+    padding: 10px;
+    font-style: italic;
+    font-size: 14px;
+    position: fixed;
+    bottom: 0;
+    width: calc(100% - 200px);
+}
