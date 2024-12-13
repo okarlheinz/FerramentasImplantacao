@@ -251,12 +251,84 @@ body {
 
 
 .footer {
-    margin-top: auto; 
+    /* margin-top: 15px;  */
+    margin-bottom: 0;
     text-align: center;
     padding: 10px;
     font-style: italic;
     font-size: 14px;
-    position: fixed;
+    /* position: fixed;
     bottom: 0;
-    width: calc(100% - 200px);
+    width: calc(100% - 200px); */
 }
+
+
+
+/* Responsividade para a sidebar */
+@media (max-width: 768px) {
+    .sidebar {
+        position: absolute;
+        left: -200px; /* Oculta a sidebar fora da tela */
+        transition: left 0.3s ease;
+    }
+
+    .sidebar.active {
+        left: 0; /* Exibe a sidebar */
+        /* height: 4000px; */
+        position: fixed;
+    }
+
+    .content {
+        margin-left: 0; /* Remove o espaçamento lateral para o conteúdo principal */
+        width: 100%;
+    }
+
+    .menu-button {
+        display: block;
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        z-index: 1100;
+        background-color: #343a40;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+}
+
+/* Responsividade para tabelas */
+@media (max-width: 768px) {
+    .table th,
+    .table td {
+        font-size: 12px; /* Reduz o tamanho do texto */
+        word-wrap: break-word; /* Permite quebra de linha se necessário */
+        white-space: normal; /* Garante que o texto quebre em linhas menores */
+    }
+
+    .table th:nth-child(2), /* Cabeçalho "Download" */
+    .table td:nth-child(2) {
+        text-align: center; /* Centraliza o conteúdo */
+    }
+
+    .table td:nth-child(2) a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px; /* Ajusta o tamanho do ícone */
+        text-decoration: none; /* Remove o sublinhado */
+        color: #007bff; /* Cor azul para o link */
+    }
+
+    .table td:nth-child(2) a span { 
+        display: none; /* Oculta o texto "Download" */
+    }
+
+    .table th:nth-child(2) {
+        text-indent: -9999px; /* Oculta o texto "Download" no cabeçalho */
+    }
+}
+
+/* Fim das alterações de responsividade */

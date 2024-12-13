@@ -19,6 +19,8 @@
   </head>
 
   <body>
+    <button class="menu-button" onclick="toggleSidebar()">Menu</button>
+
     <div class="sidebar">
       <div
         class="logo-container d-flex align-items-center"
@@ -238,15 +240,26 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="footer">
-        <p>
-            <p>© 2024 Desenvolvido por Karl Heinz. Todos os direitos reservados.<br>
-            <a href="https://www.coderx.com.br" target="_blank">www.coderx.com.br</a></p>
-        </p>
+        <div class="footer">
+          <p>
+              <p>© 2024 Desenvolvido por Karl Heinz. Todos os direitos reservados.<br>
+              <a href="https://www.coderx.com.br" target="_blank">www.coderx.com.br</a></p>
+          </p>
+        </div>
       </div>
     </div>
-
+    <script>
+      function toggleSidebar() {
+          const sidebar = document.querySelector('.sidebar');
+          sidebar.classList.toggle('active');
+      }
+      document.querySelectorAll('.menu-link').forEach(link => {
+        link.addEventListener('click', () => {
+          const sidebar = document.querySelector('.sidebar');
+          sidebar.classList.remove('active');
+        });
+      });
+      </script>      
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="JS/scripts.js"></script>
   </body>
