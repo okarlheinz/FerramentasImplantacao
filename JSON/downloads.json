@@ -82,5 +82,21 @@
     {
         "arquivo": "PLUGIN SPD BOLETO DESKTOP",
         "link": "https://cdsimplantacao.com.br/downloads/spdBoleto_3.0.9.3500.exe"
+    },
+    {
+        "arquivo": "PLANILHA IMPORTAÇÃO DE CLIENTES",
+        "link": "https://cdsimplantacao.com.br/downloads/Import_Clientes_layout.xlsx"
+    },
+    {
+        "arquivo": "PLANILHA IMPORTAÇÃO DE FORNECEDOR",
+        "link": "https://cdsimplantacao.com.br/downloads/Import_Fornecedor_layout.xlsx"
+    },
+    {
+        "arquivo": "PLANILHA IMPORTAÇÃO DE PRODUTOS",
+        "link": "https://cdsimplantacao.com.br/downloads/Import_Produtos_Layout1.xlsx"
+    },
+    {
+        "arquivo": "PLANILHA IMPORTAÇÃO DE GRUPO",
+        "link": "https://cdsimplantacao.com.br/downloads/Import_Grupo_Layout.xlsx"
     }
 ]
