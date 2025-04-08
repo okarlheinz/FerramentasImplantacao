@@ -75,6 +75,8 @@ delete from empresa
 go
 UPDATE PEDIDO_VENDA_ID SET NEW_ID=(select max(idvenda)+1 from venda where idfilial='${idFilial}')
 go
+UPDATE DEV_VENDA_ID SET NEW_ID=(select max(iddevolucao)+1 from devolucao where idfilial='${idFilial}')
+go
 INSERT INTO EMPRESA (idEmpresa,nomeFantasia,cnpj,inscEst,razaoSocial,logradouro,
 numero,complemento,bairro,cidade,estado,cep,fone,ramal,fax,email,crt) select '${idFilial}', nomeFantasia,cnpj,inscEst,razaoSocial,logradouro,
 numero,complemento,bairro,cidade,estado,cep,fone,ramal,fax,email,'1' from filial where idfilial='${idFilial}'
