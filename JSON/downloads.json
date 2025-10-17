@@ -110,5 +110,9 @@
     {
         "arquivo": "PLANILHA IMPORTAÇÃO DE GRUPO",
         "link": "https://cdsimplantacao.com.br/downloads/Import_Grupo_Layout.xlsx"
+    },
+    {
+        "arquivo": "SCRIPT MDFE 2025",
+        "link": "https://cdsimplantacao.com.br/downloads/Script_bdMDFE_2025.txt"
     }
 ]
